@@ -28,4 +28,6 @@ Route::middleware([
 });
 
 //Route Hooks - Do not delete//
+	Route::view('equipos', 'livewire.equipos.index');
+	Route::view('aulas', 'livewire.aulas.index');
 	Route::view('categorias', 'livewire.categorias.index');
