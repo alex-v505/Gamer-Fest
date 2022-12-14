@@ -28,4 +28,7 @@ Route::middleware([
 });
 
 //Route Hooks - Do not delete//
+	Route::view('partida-inds', 'livewire.partida-inds.index');
+	Route::view('partida-equs', 'livewire.partida-equs.index');
+	Route::view('horarios', 'livewire.horarios.index');
 	Route::view('categorias', 'livewire.categorias.index');

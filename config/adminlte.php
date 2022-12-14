@@ -325,6 +325,21 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Horarios',
+            'url'  => 'horarios',
+            'icon' => 'fas fa-fw fa-clock',
+        ],
+        [
+            'text' => 'Partida Equipo',
+            'url'  => 'partida-equs',
+            'icon' => 'fas fa-chess',
+        ],
+        [
+            'text' => 'Partida Individual',
+            'url'  => 'partida-inds',
+            'icon' => '	fas fa-chess-knight',
+        ],
+        [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',

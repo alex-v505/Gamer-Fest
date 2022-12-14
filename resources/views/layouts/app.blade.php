@@ -37,6 +37,15 @@
                     <ul class="navbar-nav mr-auto">
 						<!--Nav Bar Hooks - Do not delete!!-->
 						<li class="nav-item">
+                            <a href="{{ url('/partida__inds') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Partida__inds</a> 
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/partida__equs') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Partida__equs</a> 
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/horarios') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Horarios</a> 
+                        </li>
+						<li class="nav-item">
                             <a href="{{ url('/categorias') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Categorias</a> 
                         </li>
                     </ul>
