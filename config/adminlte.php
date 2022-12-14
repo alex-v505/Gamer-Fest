@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'dash',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -320,14 +320,29 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
+            'text' => 'Categorias',
             'url'  => 'categorias',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Aulas',
+            'url'  => 'aulas',
+            'icon' => 'fas fa-fw fa-home',
+        ],
+        [
+            'text' => 'Juegos',
+            'url'  => 'juegos',
+            'icon' => 'fas fa-fw fa-gamepad',
+        ],
+        [
+            'text' => 'Inscripcion individual',
+            'url'  => 'inscripcion-inds',
+            'icon' => 'fas fa-fw fa-book',
+        ],
+        [
+            'text' => 'Inscripcion Equipo',
+            'url'  => 'inscripcion-equs',
+            'icon' => 'fas fa-fw fa-book',
         ],
         [
             'text'    => 'multilevel',

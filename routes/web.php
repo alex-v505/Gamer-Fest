@@ -28,4 +28,8 @@ Route::middleware([
 });
 
 //Route Hooks - Do not delete//
+	Route::view('juegos', 'livewire.juegos.index');
+	Route::view('aulas', 'livewire.aulas.index');
+	Route::view('inscripcion-equs', 'livewire.inscripcion-equs.index');
+	Route::view('inscripcion-inds', 'livewire.inscripcion-inds.index');
 	Route::view('categorias', 'livewire.categorias.index');
