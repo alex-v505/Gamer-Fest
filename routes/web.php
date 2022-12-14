@@ -28,4 +28,6 @@ Route::middleware([
 });
 
 //Route Hooks - Do not delete//
+	Route::view('jugadors', 'livewire.jugadors.index')->middleware('auth');
+	Route::view('juegos', 'livewire.juegos.index')->middleware('auth');
 	Route::view('categorias', 'livewire.categorias.index');
