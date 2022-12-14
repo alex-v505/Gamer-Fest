@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Juego;
+use App\Models\Aula;
+use App\Models\Categoria;
 
 class Juegos extends Component
 {
@@ -17,16 +19,24 @@ class Juegos extends Component
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
+        $aulas = Aula::all();
+        $categorias = Categoria::all();
         return view('livewire.juegos.view', [
-            'juegos' => Juego::latest()
-						->orWhere('id_aul', 'LIKE', $keyWord)
-						->orWhere('id_cat', 'LIKE', $keyWord)
+            'juegos' => Juego::with('categorias')->with('aulas')
+                        ->whereHas('aulas', fn ($query) => 
+                        $query->where('codigo_aul', 'LIKE', $keyWord)
+                        )
+                        ->whereHas('categorias', fn ($query) => 
+                        $query->where('tipo_cat', 'LIKE', $keyWord)
+                        )
 						->orWhere('nombre_jue', 'LIKE', $keyWord)
 						->orWhere('compania_jue', 'LIKE', $keyWord)
 						->orWhere('precio_jue', 'LIKE', $keyWord)
-						->orWhere('descripcion_jue', 'LIKE', $keyWord)
-						->paginate(10),
-        ]);
+						->orWhere('descripcion_jue', 'LIKE', $keyWord)   
+
+                        ->get()      
+,
+        ], compact('aulas','categorias'));
     }
 	
     public function cancel()
@@ -47,8 +57,11 @@ class Juegos extends Component
 
     public function store()
     {
-       
-
+        $this->validate([
+		'id_aul' => 'required',
+		'id_cat' => 'required',
+        ]);
+        
         Juego::create([ 
 			'id_aul' => $this-> id_aul,
 			'id_cat' => $this-> id_cat,
@@ -80,7 +93,10 @@ class Juegos extends Component
 
     public function update()
     {
-        
+        $this->validate([
+		'id_aul' => 'required',
+		'id_cat' => 'required',
+        ]);
 
         if ($this->selected_id) {
 			$record = Juego::find($this->selected_id);

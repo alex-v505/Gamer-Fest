@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('sample');
 });
 
 Route::middleware([
@@ -35,4 +35,7 @@ Route::middleware([
 	Route::view('aulas', 'livewire.aulas.index');
 	Route::view('jugadors', 'livewire.jugadors.index');
 	Route::view('juegos', 'livewire.juegos.index');
+
+	Route::view('inscripcion-equs', 'livewire.inscripcion-equs.index');
+	Route::view('inscripcion-inds', 'livewire.inscripcion-inds.index');
 	Route::view('categorias', 'livewire.categorias.index');

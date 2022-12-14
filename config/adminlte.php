@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>GamerFest</b>',
+    'logo_img' => '../images/gamer_fest.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'public/images/gamer_fest.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'dash',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -312,15 +312,14 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            'text'        => 'dashboard',
+            'url'         => 'dash',
+            'icon'        => 'far fa-fw fa-user',
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
+            'text' => 'Categorias',
             'url'  => 'categorias',
             'icon' => 'fas fa-fw fa-user',
         ],
@@ -340,7 +339,7 @@ return [
             'icon' => '	fas fa-chess-knight',
         ],
         [
-            'text' => 'aulas',
+            'text' => 'Aulas',
             'url'  => 'aulas',
             'icon' => 'fas fa-fw fa-home',
         ],
@@ -349,20 +348,27 @@ return [
             'url'  => 'equipos',
             'icon' => 'fas fa-fw fa-home',
         ],
-        [
-            'text' => 'Juegos',
-            'url'  => 'juegos',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+
         [
             'text' => 'Jugadores',
             'url'  => 'jugadors',
             'icon' => 'fas fa-fw fa-user',
         ],
+
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Juegos',
+            'url'  => 'juegos',
+            'icon' => 'fas fa-fw fa-gamepad',
+        ],
+        [
+            'text' => 'Inscripcion individual',
+            'url'  => 'inscripcion-inds',
+            'icon' => 'fas fa-fw fa-book',
+        ],
+        [
+            'text' => 'Inscripcion Equipo',
+            'url'  => 'inscripcion-equs',
+            'icon' => 'fas fa-fw fa-book',
         ],
         [
             'text'    => 'multilevel',
@@ -402,22 +408,7 @@ return [
                 ],
             ],
         ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        
     ],
 
     /*

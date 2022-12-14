@@ -41,7 +41,6 @@ class Aulas extends Component
 
     public function store()
     {
-        
 
         Aula::create([ 
 			'codigo_aul' => $this-> codigo_aul,
@@ -68,7 +67,6 @@ class Aulas extends Component
 
     public function update()
     {
-        
 
         if ($this->selected_id) {
 			$record = Aula::find($this->selected_id);

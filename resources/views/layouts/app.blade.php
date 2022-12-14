@@ -48,6 +48,7 @@
                         <li class="nav-item">
                         <a href="{{ url('/equipos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Equipos</a> 
                         </li>
+
 						<li class="nav-item">
                             <a href="{{ url('/aulas') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Aulas</a> 
                         </li>
@@ -56,6 +57,11 @@
                         </li>
 						<li class="nav-item">
                             <a href="{{ url('/juegos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Juegos</a> 
+						<li class="nav-item">
+                            <a href="{{ url('/inscripcion__equs') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Inscripcion__equs</a> 
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/inscripcion-inds') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Inscripcion__inds</a> 
                         </li>
 						<li class="nav-item">
                             <a href="{{ url('/categorias') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Categorias</a> 

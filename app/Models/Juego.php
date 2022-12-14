@@ -18,7 +18,7 @@ class Juego extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function aula()
+    public function aulas()
     {
         return $this->hasOne('App\Models\Aula', 'id', 'id_aul');
     }
@@ -26,7 +26,7 @@ class Juego extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function categoria()
+    public function categorias()
     {
         return $this->hasOne('App\Models\Categoria', 'id', 'id_cat');
     }
