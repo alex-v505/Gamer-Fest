@@ -51,6 +51,12 @@
 						<li class="nav-item">
                             <a href="{{ url('/aulas') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Aulas</a> 
                         </li>
+                        <li class="nav-item">
+                        <a href="{{ url('/jugadors') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Jugadors</a> 
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/juegos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Juegos</a> 
+                        </li>
 						<li class="nav-item">
                             <a href="{{ url('/categorias') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Categorias</a> 
                         </li>
