@@ -340,6 +340,16 @@ return [
             'icon' => '	fas fa-chess-knight',
         ],
         [
+            'text' => 'aulas',
+            'url'  => 'aulas',
+            'icon' => 'fas fa-fw fa-home',
+        ],
+        [
+            'text' => 'equipos',
+            'url'  => 'equipos',
+            'icon' => 'fas fa-fw fa-home',
+        ],
+        [
             'text' => 'change_password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',

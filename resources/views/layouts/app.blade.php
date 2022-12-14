@@ -45,6 +45,12 @@
 						<li class="nav-item">
                             <a href="{{ url('/horarios') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Horarios</a> 
                         </li>
+                        <li class="nav-item">
+                        <a href="{{ url('/equipos') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Equipos</a> 
+                        </li>
+						<li class="nav-item">
+                            <a href="{{ url('/aulas') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Aulas</a> 
+                        </li>
 						<li class="nav-item">
                             <a href="{{ url('/categorias') }}" class="nav-link"><i class="fab fa-laravel text-info"></i> Categorias</a> 
                         </li>
