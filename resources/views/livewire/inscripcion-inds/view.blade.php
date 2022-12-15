@@ -32,8 +32,8 @@
 						<thead class="thead">
 							<tr> 
 								<td>#</td> 
-								<th>Id Jug</th>
-								<th>Id Jue</th>
+								<th>Jugador</th>
+								<th>Juego</th>
 								<th>Precio Ins</th>
 								<th>Pago Ins</th>
 								<td>ACTIONS</td>
@@ -43,8 +43,8 @@
 							@foreach($inscripcionInds as $row)
 							<tr>
 								<td>{{ $loop->iteration }}</td> 
-								<td>{{ $row->id_jug }}</td>
-								<td>{{ $row->id_jue }}</td>
+								<td>{{ $row->jugadors->nombre_jug }}</td>
+								<td>{{ $row->juegos->nombre_jue }}</td>
 								<td>{{ $row->precio_ins }}</td>
 								<td>{{ $row->pago_ins }}</td>
 								<td width="90">
@@ -61,7 +61,7 @@
 							@endforeach
 						</tbody>
 					</table>						
-					{{ $inscripcionInds->links() }}
+					
 					</div>
 				</div>
 			</div>

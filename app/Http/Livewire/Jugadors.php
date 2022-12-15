@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Jugador;
+use App\Models\Equipo;
 
 class Jugadors extends Component
 {
@@ -17,16 +18,19 @@ class Jugadors extends Component
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
+        $equipos = Equipo::all();
         return view('livewire.jugadors.view', [
-            'jugadors' => Jugador::latest()
-						->orWhere('id_equ', 'LIKE', $keyWord)
+            'jugadors' => Jugador::with('equipos')
+                        ->whereHas('equipos', fn ($query) => 
+                        $query->where('nombre_equ', 'LIKE', $keyWord)
+                        )
 						->orWhere('nombre_jug', 'LIKE', $keyWord)
 						->orWhere('cedula_jug', 'LIKE', $keyWord)
 						->orWhere('telefono_jug', 'LIKE', $keyWord)
 						->orWhere('correo_jug', 'LIKE', $keyWord)
 						->orWhere('descripcion_jug', 'LIKE', $keyWord)
-						->paginate(10),
-        ]);
+						->get(),
+        ],compact('equipos'));
     }
 	
     public function cancel()

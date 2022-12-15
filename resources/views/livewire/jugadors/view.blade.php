@@ -32,12 +32,12 @@
 						<thead class="thead">
 							<tr> 
 								<td>#</td> 
-								<th>Id Equ</th>
-								<th>Nombre Jug</th>
-								<th>Cedula Jug</th>
-								<th>Telefono Jug</th>
-								<th>Correo Jug</th>
-								<th>Descripcion Jug</th>
+								<th>Equipo</th>
+								<th>Nombre </th>
+								<th>Cedula </th>
+								<th>Telefono </th>
+								<th>Correo </th>
+								<th>Descripcion </th>
 								<td>ACTIONS</td>
 							</tr>
 						</thead>
@@ -45,7 +45,7 @@
 							@foreach($jugadors as $row)
 							<tr>
 								<td>{{ $loop->iteration }}</td> 
-								<td>{{ $row->id_equ }}</td>
+								<td>{{ $row->equipos->nombre_equ ?? 'Ninguno' }}</td>
 								<td>{{ $row->nombre_jug }}</td>
 								<td>{{ $row->cedula_jug }}</td>
 								<td>{{ $row->telefono_jug }}</td>
@@ -65,7 +65,7 @@
 							@endforeach
 						</tbody>
 					</table>						
-					{{ $jugadors->links() }}
+
 					</div>
 				</div>
 			</div>

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\PartidaInd;
+use App\Models\InscripcionInd;
 
 class PartidaInds extends Component
 {
@@ -17,15 +18,22 @@ class PartidaInds extends Component
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
+        $inscritos = InscripcionInd::with('jugadors')->get();
         return view('livewire.partida-inds.view', [
-            'partidaInds' => PartidaInd::latest()
-						->orWhere('id_jug1', 'LIKE', $keyWord)
-						->orWhere('id_jug2', 'LIKE', $keyWord)
-						->orWhere('ganador_par_ind', 'LIKE', $keyWord)
+            'partidaInds' => PartidaInd::with('jugadors1')->with('jugadors2')->with('jugadors3')
+                        ->whereHas('jugadors1', fn ($query) => 
+                        $query->where('nombre_jug', 'LIKE', $keyWord)
+                        )
+						->whereHas('jugadors2', fn ($query) => 
+                        $query->where('nombre_jug', 'LIKE', $keyWord)
+                        )
+						->whereHas('jugadors3', fn ($query) => 
+                        $query->where('nombre_jug', 'LIKE', $keyWord)
+                        )
 						->orWhere('fecha_par_ind', 'LIKE', $keyWord)
 						->orWhere('observacion_par_ind', 'LIKE', $keyWord)
-						->paginate(10),
-        ]);
+						->get(),
+        ], compact('inscritos'));
     }
 	
     public function cancel()

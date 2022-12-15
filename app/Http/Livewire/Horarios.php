@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Horario;
-
+use App\Models\Juego;
 class Horarios extends Component
 {
     use WithPagination;
@@ -17,14 +17,17 @@ class Horarios extends Component
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
+        $juegos = Juego::all();
         return view('livewire.horarios.view', [
-            'horarios' => Horario::latest()
-						->orWhere('id_jue', 'LIKE', $keyWord)
+            'horarios' => Horario::with('juegos')
+                        ->whereHas('juegos', fn ($query) => 
+                        $query->where('nombre_jue', 'LIKE', $keyWord)
+                        )
 						->orWhere('hora_ini_hor', 'LIKE', $keyWord)
 						->orWhere('hora_fin_hor', 'LIKE', $keyWord)
 						->orWhere('observacion_hor', 'LIKE', $keyWord)
-						->paginate(10),
-        ]);
+						->get(),
+        ], compact('juegos'));
     }
 	
     public function cancel()

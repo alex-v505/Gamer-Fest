@@ -18,7 +18,7 @@ class InscripcionEqu extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function equipo()
+    public function equipos()
     {
         return $this->hasOne('App\Models\Equipo', 'id', 'id_equ');
     }
@@ -26,7 +26,7 @@ class InscripcionEqu extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function juego()
+    public function juegos()
     {
         return $this->hasOne('App\Models\Juego', 'id', 'id_jue');
     }

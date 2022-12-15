@@ -13,21 +13,36 @@
                 <form>
                     <div class="form-group">
                         <label for="id_jug1"></label>
-                        <input wire:model="id_jug1" type="text" class="form-control" id="id_jug1"
-                            placeholder="Id Jugador 1">@error('id_jug1') <span
-                            class="error text-danger">{{ $message }}</span> @enderror
+                        <select wire:model="id_jug1" type="text" class="form-control" id="id_jug1"
+                            placeholder="Jugador 1">@error('id_jug1') <span class="error text-danger">{{ $message }}</span>
+                            @enderror
+                            <option>Seleccione</option>
+                            @foreach($inscritos as $inscrito)
+                            <option value="{{$inscrito->jugadors->id}}">{{$inscrito->jugadors->nombre_jug}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="id_jug2"></label>
-                        <input wire:model="id_jug2" type="text" class="form-control" id="id_jug2"
-                            placeholder="Id Jugador 2">@error('id_jug2') <span
-                            class="error text-danger">{{ $message }}</span> @enderror
+                        <select wire:model="id_jug2" type="text" class="form-control" id="id_jug2"
+                            placeholder="Jugador 2">@error('id_jug2') <span class="error text-danger">{{ $message }}</span>
+                            @enderror
+                            <option>Seleccione</option>
+                            @foreach($inscritos as $inscrito)
+                            <option value="{{$inscrito->jugadors->id}}">{{$inscrito->jugadors->nombre_jug}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="ganador_par_ind"></label>
-                        <input wire:model="ganador_par_ind" type="text" class="form-control" id="ganador_par_ind"
-                            placeholder="Ganador Parida">@error('ganador_par_ind') <span
-                            class="error text-danger">{{ $message }}</span> @enderror
+                        <select wire:model="ganador_par_ind" type="text" class="form-control" id="ganador_par_ind"
+                            placeholder="Ganador">@error('ganador_par_ind') <span class="error text-danger">{{ $message }}</span>
+                            @enderror
+                            <option>Seleccione</option>
+                            @foreach($inscritos as $inscrito)
+                            <option value="{{$inscrito->jugadors->id}}">{{$inscrito->jugadors->nombre_jug}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="fecha_par_ind"></label>
@@ -38,7 +53,8 @@
                     <div class="form-group">
                         <label for="observacion_par_ind"></label>
                         <input wire:model="observacion_par_ind" type="text" class="form-control"
-                            id="observacion_par_ind" placeholder="Observacion de la partida">@error('observacion_par_ind')
+                            id="observacion_par_ind"
+                            placeholder="Observacion de la partida">@error('observacion_par_ind')
                         <span class="error text-danger">{{ $message }}</span> @enderror
                     </div>
 

@@ -32,11 +32,11 @@
 						<thead class="thead">
 							<tr> 
 								<td>#</td> 
-								<th>Id Equ1</th>
-								<th>Id Equ2</th>
-								<th>Ganador Par Equ</th>
-								<th>Fecha Par Equ</th>
-								<th>Observacion Par Equ</th>
+								<th>Equ1</th>
+								<th>Equ2</th>
+								<th>Ganador </th>
+								<th>Fecha </th>
+								<th>Observacion </th>
 								<td>ACTIONS</td>
 							</tr>
 						</thead>
@@ -44,9 +44,9 @@
 							@foreach($partidaEqus as $row)
 							<tr>
 								<td>{{ $loop->iteration }}</td> 
-								<td>{{ $row->id_equ1 }}</td>
-								<td>{{ $row->id_equ2 }}</td>
-								<td>{{ $row->ganador_par_equ }}</td>
+								<td>{{ $row->equipo1->nombre_equ }}</td>
+								<td>{{ $row->equipo2->nombre_equ }}</td>
+								<td>{{ $row->equipo3->nombre_equ }}</td>
 								<td>{{ $row->fecha_par_equ }}</td>
 								<td>{{ $row->observacion_par_equ }}</td>
 								<td width="90">
@@ -63,7 +63,6 @@
 							@endforeach
 						</tbody>
 					</table>						
-					{{ $partidaEqus->links() }}
 					</div>
 				</div>
 			</div>

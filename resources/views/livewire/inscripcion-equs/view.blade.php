@@ -32,10 +32,10 @@
 						<thead class="thead">
 							<tr> 
 								<td>#</td> 
-								<th>Id Equ</th>
-								<th>Id Jue</th>
-								<th>Precio Ins Equ</th>
-								<th>Pago Ins Equ</th>
+								<th>Equipo</th>
+								<th>Juego</th>
+								<th>Precio</th>
+								<th>Pago</th>
 								<td>ACTIONS</td>
 							</tr>
 						</thead>
@@ -43,8 +43,8 @@
 							@foreach($inscripcionEqus as $row)
 							<tr>
 								<td>{{ $loop->iteration }}</td> 
-								<td>{{ $row->id_equ }}</td>
-								<td>{{ $row->id_jue }}</td>
+								<td>{{ $row->equipos->nombre_equ }}</td>
+								<td>{{ $row->juegos->nombre_jue }}</td>
 								<td>{{ $row->precio_ins_equ }}</td>
 								<td>{{ $row->pago_ins_equ }}</td>
 								<td width="90">
@@ -61,7 +61,6 @@
 							@endforeach
 						</tbody>
 					</table>						
-					{{ $inscripcionEqus->links() }}
 					</div>
 				</div>
 			</div>

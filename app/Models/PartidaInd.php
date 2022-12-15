@@ -22,7 +22,18 @@ class PartidaInd extends Model
     {
         return $this->hasOne('App\Models\InscripcionInd', 'id', 'id_jug1');
     }
-    
+    public function jugadors1()
+    {
+        return $this->hasOne('App\Models\Jugador', 'id', 'id_jug1');
+    }
+    public function jugadors2()
+    {
+        return $this->hasOne('App\Models\Jugador', 'id', 'id_jug2');
+    }
+    public function jugadors3()
+    {
+        return $this->hasOne('App\Models\Jugador', 'id', 'ganador_par_ind');
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */

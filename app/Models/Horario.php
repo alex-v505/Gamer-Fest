@@ -18,7 +18,7 @@ class Horario extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function juego()
+    public function juegos()
     {
         return $this->hasOne('App\Models\Juego', 'id', 'id_jue');
     }

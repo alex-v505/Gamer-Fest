@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Livewire;
-
+use Livewire\WithFileUploads;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\InscripcionEqu;
-
+use App\Models\Juego;
+use App\Models\Equipo;
 class InscripcionEqus extends Component
 {
     use WithPagination;
-
+    use WithFileUploads;
 	protected $paginationTheme = 'bootstrap';
     public $selected_id, $keyWord, $id_equ, $id_jue, $precio_ins_equ, $pago_ins_equ;
     public $updateMode = false;
@@ -17,14 +18,20 @@ class InscripcionEqus extends Component
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
+        $juegos = Juego::all();
+        $equipos = Equipo::all();
         return view('livewire.inscripcion-equs.view', [
-            'inscripcionEqus' => InscripcionEqu::latest()
-						->orWhere('id_equ', 'LIKE', $keyWord)
-						->orWhere('id_jue', 'LIKE', $keyWord)
+            'inscripcionEqus' => InscripcionEqu::with('juegos')->with('equipos')
+                        ->whereHas('equipos', fn ($query) => 
+                        $query->where('nombre_equ', 'LIKE', $keyWord)
+                        )
+                        ->whereHas('juegos', fn ($query) => 
+                        $query->where('nombre_jue', 'LIKE', $keyWord)
+                        )
 						->orWhere('precio_ins_equ', 'LIKE', $keyWord)
 						->orWhere('pago_ins_equ', 'LIKE', $keyWord)
-						->paginate(10),
-        ]);
+						->get(),
+        ],compact('juegos','equipos'));
     }
 	
     public function cancel()
@@ -47,7 +54,7 @@ class InscripcionEqus extends Component
 		'id_equ' => 'required',
 		'id_jue' => 'required',
 		'precio_ins_equ' => 'required',
-		'pago_ins_equ' => 'required',
+		
         ]);
 
         InscripcionEqu::create([ 
@@ -81,7 +88,7 @@ class InscripcionEqus extends Component
 		'id_equ' => 'required',
 		'id_jue' => 'required',
 		'precio_ins_equ' => 'required',
-		'pago_ins_equ' => 'required',
+		
         ]);
 
         if ($this->selected_id) {

@@ -22,7 +22,18 @@ class PartidaEqu extends Model
     {
         return $this->hasOne('App\Models\InscripcionEqu', 'id', 'ganador_par_equ');
     }
-    
+    public function equipo1()
+    {
+        return $this->hasOne('App\Models\Equipo', 'id', 'id_equ1');
+    }
+    public function equipo2()
+    {
+        return $this->hasOne('App\Models\Equipo', 'id', 'id_equ2');
+    }
+    public function equipo3()
+    {
+        return $this->hasOne('App\Models\Equipo', 'id', 'ganador_par_equ');
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */

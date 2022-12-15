@@ -11,23 +11,38 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="form-group">
+                <div class="form-group">
                         <label for="id_equ1"></label>
-                        <input wire:model="id_equ1" type="text" class="form-control" id="id_equ1"
-                            placeholder="Id Equipo 1">@error('id_equ1') <span
-                            class="error text-danger">{{ $message }}</span> @enderror
+                        <select wire:model="id_equ1" type="text" class="form-control" id="id_equ1"
+                            placeholder="Equipo 1">@error('id_equ1') <span class="error text-danger">{{ $message }}</span>
+                            @enderror
+                            <option>Seleccione</option>
+                            @foreach($inscritos as $inscrito)
+                            <option value="{{$inscrito->equipos->id}}">{{$inscrito->equipos->nombre_equ}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="id_equ2"></label>
-                        <input wire:model="id_equ2" type="text" class="form-control" id="id_equ2"
-                            placeholder="Id Equipo 2">@error('id_equ2') <span
-                            class="error text-danger">{{ $message }}</span> @enderror
+                        <select wire:model="id_equ2" type="text" class="form-control" id="id_equ2"
+                            placeholder="Equipo 2">@error('id_equ2') <span class="error text-danger">{{ $message }}</span>
+                            @enderror
+                            <option>Seleccione</option>
+                            @foreach($inscritos as $inscrito)
+                            <option value="{{$inscrito->equipos->id}}">{{$inscrito->equipos->nombre_equ}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="ganador_par_equ"></label>
-                        <input wire:model="ganador_par_equ" type="text" class="form-control" id="ganador_par_equ"
-                            placeholder="Equipo Ganador">@error('ganador_par_equ') <span
-                            class="error text-danger">{{ $message }}</span> @enderror
+                        <select wire:model="ganador_par_equ" type="text" class="form-control" id="ganador_par_equ"
+                            placeholder="Ganador">@error('ganador_par_equ') <span class="error text-danger">{{ $message }}</span>
+                            @enderror
+                            <option>Seleccione</option>
+                            @foreach($inscritos as $inscrito)
+                            <option value="{{$inscrito->equipos->id}}">{{$inscrito->equipos->nombre_equ}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="fecha_par_equ"></label>

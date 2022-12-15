@@ -11,10 +11,17 @@
             <div class="modal-body">
                 <form>
 					<input type="hidden" wire:model="selected_id">
-            <div class="form-group">
-                <label for="id_jue"></label>
-                <input wire:model="id_jue" type="text" class="form-control" id="id_jue" placeholder="Id Jue">@error('id_jue') <span class="error text-danger">{{ $message }}</span> @enderror
-            </div>
+                    <div class="form-group">
+                        <label for="id_jue"></label>
+                        <select wire:model="id_jue" type="text" class="form-control" id="id_jue"
+                            placeholder="Juego">@error('id_jue') <span class="error text-danger">{{ $message }}</span>
+                            @enderror
+                            <option>Seleccione</option>
+                            @foreach($juegos as $juego)
+                            <option value="{{$juego->id}}">{{$juego->nombre_jue}}</option>
+                            @endforeach
+                        </select>
+                    </div>
             <div class="form-group">
                 <label for="hora_ini_hor"></label>
                 <input wire:model="hora_ini_hor" type="text" class="form-control" id="hora_ini_hor" placeholder="Hora Ini Hor">@error('hora_ini_hor') <span class="error text-danger">{{ $message }}</span> @enderror

@@ -18,7 +18,7 @@ class InscripcionInd extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function juego()
+    public function juegos()
     {
         return $this->hasOne('App\Models\Juego', 'id', 'id_jue');
     }
@@ -26,7 +26,7 @@ class InscripcionInd extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function jugador()
+    public function jugadors()
     {
         return $this->hasOne('App\Models\Jugador', 'id', 'id_jug');
     }

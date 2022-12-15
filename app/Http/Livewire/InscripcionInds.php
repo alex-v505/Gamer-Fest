@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Livewire;
-
+use Livewire\WithFileUploads;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\InscripcionInd;
-
+use App\Models\Juego;
+use App\Models\Jugador;
 class InscripcionInds extends Component
 {
     use WithPagination;
-
+    use WithFileUploads;
 	protected $paginationTheme = 'bootstrap';
     public $selected_id, $keyWord, $id_jug, $id_jue, $precio_ins, $pago_ins;
     public $updateMode = false;
@@ -17,14 +18,20 @@ class InscripcionInds extends Component
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
+        $juegos = Juego::all();
+        $jugadores = Jugador::all();
         return view('livewire.inscripcion-inds.view', [
-            'inscripcionInds' => InscripcionInd::latest()
-						->orWhere('id_jug', 'LIKE', $keyWord)
-						->orWhere('id_jue', 'LIKE', $keyWord)
+            'inscripcionInds' => InscripcionInd::with('juegos')->with('jugadors')
+						->whereHas('jugadors', fn ($query) => 
+                        $query->where('nombre_jug', 'LIKE', $keyWord)
+                        )
+                        ->whereHas('juegos', fn ($query) => 
+                        $query->where('nombre_jue', 'LIKE', $keyWord)
+                        )
 						->orWhere('precio_ins', 'LIKE', $keyWord)
 						->orWhere('pago_ins', 'LIKE', $keyWord)
-						->paginate(10),
-        ]);
+						->get(),
+        ],compact('juegos','jugadores'));
     }
 	
     public function cancel()
@@ -47,7 +54,6 @@ class InscripcionInds extends Component
 		'id_jug' => 'required',
 		'id_jue' => 'required',
 		'precio_ins' => 'required',
-		'pago_ins' => 'required',
         ]);
 
         InscripcionInd::create([ 
@@ -81,7 +87,6 @@ class InscripcionInds extends Component
 		'id_jug' => 'required',
 		'id_jue' => 'required',
 		'precio_ins' => 'required',
-		'pago_ins' => 'required',
         ]);
 
         if ($this->selected_id) {

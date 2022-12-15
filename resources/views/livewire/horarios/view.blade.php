@@ -32,10 +32,10 @@
 						<thead class="thead">
 							<tr> 
 								<td>#</td> 
-								<th>Id Jue</th>
-								<th>Hora Ini Hor</th>
-								<th>Hora Fin Hor</th>
-								<th>Observacion Hor</th>
+								<th>Juego</th>
+								<th>Hora Inicial</th>
+								<th>Hora Final</th>
+								<th>Observacion</th>
 								<td>ACTIONS</td>
 							</tr>
 						</thead>
@@ -43,7 +43,7 @@
 							@foreach($horarios as $row)
 							<tr>
 								<td>{{ $loop->iteration }}</td> 
-								<td>{{ $row->id_jue }}</td>
+								<td>{{ $row->juegos->nombre_jue }}</td>
 								<td>{{ $row->hora_ini_hor }}</td>
 								<td>{{ $row->hora_fin_hor }}</td>
 								<td>{{ $row->observacion_hor }}</td>
@@ -61,7 +61,6 @@
 							@endforeach
 						</tbody>
 					</table>						
-					{{ $horarios->links() }}
 					</div>
 				</div>
 			</div>

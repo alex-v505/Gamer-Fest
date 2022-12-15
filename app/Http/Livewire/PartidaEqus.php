@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\PartidaEqu;
-
+use App\Models\InscripcionEqu;
 class PartidaEqus extends Component
 {
     use WithPagination;
@@ -17,15 +17,22 @@ class PartidaEqus extends Component
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
+        $inscritos = InscripcionEqu::with('equipos')->get();
         return view('livewire.partida-equs.view', [
-            'partidaEqus' => PartidaEqu::latest()
-						->orWhere('id_equ1', 'LIKE', $keyWord)
-						->orWhere('id_equ2', 'LIKE', $keyWord)
-						->orWhere('ganador_par_equ', 'LIKE', $keyWord)
+            'partidaEqus' => PartidaEqu::with('equipo1')->with('equipo2')->with('equipo3')
+                        ->whereHas('equipo1', fn ($query) => 
+                        $query->where('nombre_equ', 'LIKE', $keyWord)
+                        )
+                        ->whereHas('equipo2', fn ($query) => 
+                        $query->where('nombre_equ', 'LIKE', $keyWord)
+                        )
+                        ->whereHas('equipo3', fn ($query) => 
+                        $query->where('nombre_equ', 'LIKE', $keyWord)
+                        )
 						->orWhere('fecha_par_equ', 'LIKE', $keyWord)
 						->orWhere('observacion_par_equ', 'LIKE', $keyWord)
-						->paginate(10),
-        ]);
+						->get(),
+        ], compact('inscritos'));
     }
 	
     public function cancel()

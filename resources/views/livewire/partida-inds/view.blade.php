@@ -32,11 +32,11 @@
 						<thead class="thead">
 							<tr> 
 								<td>#</td> 
-								<th>Id Jug1</th>
-								<th>Id Jug2</th>
-								<th>Ganador Par Ind</th>
-								<th>Fecha Par Ind</th>
-								<th>Observacion Par Ind</th>
+								<th>Jug1</th>
+								<th>Jug2</th>
+								<th>Ganador </th>
+								<th>Fecha </th>
+								<th>Observacion </th>
 								<td>ACTIONS</td>
 							</tr>
 						</thead>
@@ -44,9 +44,9 @@
 							@foreach($partidaInds as $row)
 							<tr>
 								<td>{{ $loop->iteration }}</td> 
-								<td>{{ $row->id_jug1 }}</td>
-								<td>{{ $row->id_jug2 }}</td>
-								<td>{{ $row->ganador_par_ind }}</td>
+								<td>{{ $row->jugadors1->nombre_jug }}</td>
+								<td>{{ $row->jugadors2->nombre_jug }}</td>
+								<td>{{ $row->jugadors3->nombre_jug }}</td>
 								<td>{{ $row->fecha_par_ind }}</td>
 								<td>{{ $row->observacion_par_ind }}</td>
 								<td width="90">
@@ -63,7 +63,7 @@
 							@endforeach
 						</tbody>
 					</table>						
-					{{ $partidaInds->links() }}
+					
 					</div>
 				</div>
 			</div>
