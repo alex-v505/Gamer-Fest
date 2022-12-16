@@ -8,8 +8,8 @@ use App\Models\Horario;
 use App\Models\Juego;
 use App\Models\InscripcionInd;
 use App\Models\InscripcionEqu;
-use App\Models\Partida_Ind;
-use App\Models\Partida_Equ;
+use App\Models\PartidaInd;
+use App\Models\PartidaEqu;
 use Carbon\Carbon;
 
 /**
@@ -200,6 +200,10 @@ class DashboardRepository
         $dashboard = [];
         $dashboard['dashboardInfo'] = $this->getDashboardInfo();
         $dashboard['chartCategoria'] = $this->getChartCategoriaInfo();
+        $dashboard['chartInscripcion'] = $this->getChartInscripcionesInfo();
+        $dashboard['chartPartida'] = $this->getChartPartidasInfo();
+        $dashboard['chartPrecios'] = $this->getChartPreciosInscripcionInfo();
+        $dashboard['chartJuegos'] = $this->getChartJuegosInfo();
         return $dashboard;
     }
 }

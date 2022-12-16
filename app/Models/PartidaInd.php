@@ -18,10 +18,7 @@ class PartidaInd extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function inscripcionInd()
-    {
-        return $this->hasOne('App\Models\InscripcionInd', 'id', 'id_jug1');
-    }
+
     public function jugadors1()
     {
         return $this->hasOne('App\Models\Jugador', 'id', 'id_jug1');
