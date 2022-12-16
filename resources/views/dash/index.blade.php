@@ -22,7 +22,7 @@ $data = $dashboard->ObtenerData();
                 <p>Categorias</p>
             </div>
             <div class="icon">
-                <i class="fas fa-user"></i>
+                <i class="fas fa-book"></i>
             </div>
         </div>
     </div>
@@ -31,11 +31,11 @@ $data = $dashboard->ObtenerData();
 
         <div class="small-box bg-success">
             <div class="inner">
-                <h3>530</h3>
-                <p>Visitas totales</p>
+                <h3>{{$data['dashboardInfo']['hor_count']}}</h3>
+                <p>Horarios</p>
             </div>
             <div class="icon">
-                <i class="	far fa-eye"></i>
+                <i class="	far fa-clock"></i>
             </div>
         </div>
     </div>
@@ -44,11 +44,11 @@ $data = $dashboard->ObtenerData();
 
         <div class="small-box bg-warning">
             <div class="inner">
-                <h3>440</h3>
-                <p>Usuarios registrados</p>
+                <h3>{{$data['dashboardInfo']['jue_count']}}</h3>
+                <p>Juegos</p>
             </div>
             <div class="icon">
-                <i class="fas fa-user-plus"></i>
+                <i class="fas fa-gamepad"></i>
             </div>
 
         </div>
@@ -58,11 +58,11 @@ $data = $dashboard->ObtenerData();
 
         <div class="small-box bg-danger">
             <div class="inner">
-                <h3>65</h3>
-                <p>Visitantes diarios</p>
+                <h3>{{$data['dashboardInfo']['aul_count']}}</h3>
+                <p>Aulas</p>
             </div>
             <div class="icon">
-                <i class="fas fa-eye"></i>
+                <i class="fas fa-home"></i>
             </div>
         </div>
     </div>
@@ -75,7 +75,7 @@ $data = $dashboard->ObtenerData();
 
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Participantes</h3>
+                        <h3 class="card-title">Inscripciones</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
@@ -106,7 +106,7 @@ $data = $dashboard->ObtenerData();
 
                 <div class="card card-danger">
                     <div class="card-header">
-                        <h3 class="card-title">Partidas Totales</h3>
+                        <h3 class="card-title">Categorias</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
@@ -140,7 +140,7 @@ $data = $dashboard->ObtenerData();
             <div class="col-md-6">
                 <div class="card card-danger">
                     <div class="card-header">
-                        <h3 class="card-title">Ganancias recaudadas</h3>
+                        <h3 class="card-title">Partidas</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
@@ -168,7 +168,7 @@ $data = $dashboard->ObtenerData();
 
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title" id="titulo">Juegos registrados</h3>
+                        <h3 class="card-title" id="titulo">Precio Inscripciones</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
@@ -198,7 +198,7 @@ $data = $dashboard->ObtenerData();
             <div class="col-6">
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title" id="titulo">Juegos registrados</h3>
+                        <h3 class="card-title" id="titulo">Precios Juegos</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
@@ -230,7 +230,39 @@ $data = $dashboard->ObtenerData();
             <div class="col-6">
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title" id="titulo">Precio Juego</h3>
+                        <h3 class="card-title" id="titulo">Participantes por juegos individuales</h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="inscripcionEquipoChart"
+                                style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 478px;"
+                                width="478" height="250" class="chartjs-render-monitor"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+            <div class="col-6">
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title" id="titulo">Participantes por juegos equipos</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
@@ -259,7 +291,6 @@ $data = $dashboard->ObtenerData();
                 </div>
                 
             </div>
-            
 
 
 
@@ -293,5 +324,7 @@ var userCheckinChart = new Chart(document.getElementById('preciosChart').getCont
     'chartPrecios']));
 var userCheckinChart = new Chart(document.getElementById('juegosChart').getContext('2d'), @json($data['chartJuegos']));
 var userCheckinChart = new Chart(document.getElementById('inscripcionJuegoChart').getContext('2d'), @json($data['charInscipcionJuego']));
+
+var userCheckinChart = new Chart(document.getElementById('inscripcionEquipoChart').getContext('2d'), @json($data['charInscipcionEquipo']));
 </script>
 @stop

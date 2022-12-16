@@ -328,25 +328,18 @@ return [
             'url'  => 'horarios',
             'icon' => 'fas fa-fw fa-clock',
         ],
-        [
-            'text' => 'Partida Equipo',
-            'url'  => 'partida-equs',
-            'icon' => 'fas fa-chess',
-        ],
-        [
-            'text' => 'Partida Individual',
-            'url'  => 'partida-inds',
-            'icon' => '	fas fa-chess-knight',
-        ],
+        
+        
+        
         [
             'text' => 'Aulas',
             'url'  => 'aulas',
             'icon' => 'fas fa-fw fa-home',
         ],
         [
-            'text' => 'equipos',
+            'text' => 'Equipos',
             'url'  => 'equipos',
-            'icon' => 'fas fa-fw fa-home',
+            'icon' => 'fas fa-fw fa-users',
         ],
 
         [
@@ -360,52 +353,39 @@ return [
             'url'  => 'juegos',
             'icon' => 'fas fa-fw fa-gamepad',
         ],
+        
         [
-            'text' => 'Inscripcion individual',
-            'url'  => 'inscripcion-inds',
-            'icon' => 'fas fa-fw fa-book',
-        ],
-        [
-            'text' => 'Inscripcion Equipo',
-            'url'  => 'inscripcion-equs',
-            'icon' => 'fas fa-fw fa-book',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Inscripciones',
+            'icon'    => 'fas fa-fw fa-book',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Inscripcion individual',
+                    'url'  => 'inscripcion-inds',
+                    'icon' => 'fas fa-fw fa-book',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'Inscripcion Equipo',
+                    'url'  => 'inscripcion-equs',
+                    'icon' => 'fas fa-fw fa-book',
+                ],
+                
+            ],
+        ],
+        [
+            'text'    => 'Partidos',
+            'icon'    => 'fas fa-fw fa-chess',
+            'submenu' => [
+                [
+                    'text' => 'Partida Equipo',
+                    'url'  => 'partida-equs',
+                    'icon' => 'fas fa-chess',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Partida Individual',
+                    'url'  => 'partida-inds',
+                    'icon' => '	fas fa-chess-knight',
                 ],
+                
             ],
         ],
         

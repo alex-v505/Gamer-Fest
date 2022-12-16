@@ -6,6 +6,7 @@ namespace App\Repositories;
 use App\Models\Categoria;
 use App\Models\Horario;
 use App\Models\Juego;
+use App\Models\Aula;
 use App\Models\InscripcionInd;
 use App\Models\InscripcionEqu;
 use App\Models\PartidaInd;
@@ -39,7 +40,9 @@ class DashboardRepository
         $dashboardInfo = [];
         
         $dashboardInfo['cat_count'] =  Categoria::get()->count();
-        
+        $dashboardInfo['hor_count'] =  Horario::get()->count();
+        $dashboardInfo['jue_count'] =  Juego::get()->count();
+        $dashboardInfo['aul_count'] =  Aula::get()->count();
         return $dashboardInfo;
     }
 
@@ -165,9 +168,7 @@ class DashboardRepository
     {
         $labels = [];
         $dataset1 = [];
-        $dataset1['label'] = ['Inscripciones individuales','Inscripciones en Equipos'];
         $dataset1['data'] = [];
-        $dataset1['borderColor'] = ['rgb(5, 180, 122, 0.1)','rgb(20, 150, 192, 0.3)'];
         $dataset1['borderWidht'] = ['2','2'];
 
         $labels = [];
@@ -208,7 +209,7 @@ class DashboardRepository
 
         $labels = [];
         $dataset1 = [];
-        $dataset1['label'] = 'Precios Juegos';
+        $dataset1['label'] = 'Total inscritos por juegos individuales';
         $dataset1['data'] = [];
         
 
@@ -222,7 +223,7 @@ class DashboardRepository
         }
     
 
-    $datasets = [];
+        $datasets = [];
         $datasets[] = $dataset1;
 
         $data = [];
@@ -233,7 +234,45 @@ class DashboardRepository
         $chart['type'] = 'bar';
         $chart['data'] = $data;
         return $chart;
-     }
+    }
+    public function getCharInscipcionEquipo()
+    {
+        $labels = [];
+        $dataset1 = [];
+        $dataset1['label'] = [];
+        $dataset1['data'] = [];
+        $dataset1['borderColor'] = ['rgb(5, 180, 122, 0.1)','rgb(20, 150, 192, 0.3)'];
+        $dataset1['borderWidht'] = ['2','2'];
+
+        $labels = [];
+        $dataset1 = [];
+        $dataset1['label'] = 'Total inscritos por juegos en equipo';
+        $dataset1['data'] = [];
+        
+
+        $data = InscripcionEqu :: select('id_jue', InscripcionEqu::raw('count(*) as total'))
+        ->groupBy('id_jue')
+        ->get();
+        foreach ($data as $key => $value) {
+            $dataset1['backgroundColor'][$key] = 'rgba(' . rand(1, 255) . ',' . rand(1, 255) . ',' . rand(1, 255) . ',' .rand(1,8).')';
+            $dataset1['data'][$key] = $value->total;
+            $labels[$key] = $value->id_jue;
+        }
+    
+
+        $datasets = [];
+        $datasets[] = $dataset1;
+
+        $data = [];
+        $data['labels'] = array_values($labels);
+        $data['datasets'] = $datasets;
+
+        $chart = [];
+        $chart['type'] = 'bar';
+        $chart['data'] = $data;
+        return $chart;
+    }
+    
     public function ObtenerData()
     {
         $dashboard = [];
@@ -244,6 +283,9 @@ class DashboardRepository
         $dashboard['chartPrecios'] = $this->getChartPreciosInscripcionInfo();
         $dashboard['chartJuegos'] = $this->getChartJuegosInfo();
         $dashboard['charInscipcionJuego'] = $this->getCharInscipcionJuego();
+        $dashboard['charInscipcionEquipo'] = $this->getCharInscipcionEquipo();
         return $dashboard;
     }
+    
+
 }
