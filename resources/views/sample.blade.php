@@ -418,19 +418,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item align-self-end">
                         @if (Route::has('login'))
                         @auth
                         <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
                         @else
-                        <a class="nav-link" href="{{ route('login') }}">Log in</a>
+                        <a class="nav-link" href="{{ route('login') }}">Iniciar Sesion</a>
                         @endif
                     </li>
                     <li class="nav-item">
                         @if (Route::has('register'))
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        <a class="nav-link" href="{{ route('register') }}">Registrarse</a>
                         @endif
                         @endauth
                     </li>
