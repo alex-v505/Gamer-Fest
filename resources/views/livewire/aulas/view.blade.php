@@ -35,7 +35,7 @@
 								<th>Codigo Aul</th>
 								<th>Edificio Aul</th>
 								<th>Observacion Aul</th>
-								<td>ACTIONS</td>
+								<td>Acciones</td>
 							</tr>
 						</thead>
 						<tbody>

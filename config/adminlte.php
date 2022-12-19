@@ -312,7 +312,7 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'dashboard',
+            'text'        => 'Dashboard',
             'url'         => 'dash',
             'icon'        => 'far fa-fw fa-user',
             'label_color' => 'success',
