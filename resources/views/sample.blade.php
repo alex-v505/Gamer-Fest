@@ -283,6 +283,126 @@
         grid-template-columns: repeat(1, minmax(0, 1fr))
     }
 
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+    }
+
+    .one {
+        grid-column: 2 / 4;
+        grid-row: 1;
+    }
+
+    .two {
+        grid-column: 4;
+        grid-row: 1;
+    }
+
+    .three {
+        grid-column: 1;
+        grid-row: 1 / 3;
+    }
+
+    .four {
+        grid-column: 2/6;
+        grid-row: 2;
+    }
+
+    .five {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .six {
+        grid-column: 3;
+        grid-row: 3;
+    }
+
+    .seven {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .btn-neon {
+        position: relative;
+        display: inline-block;
+        padding: 15px 30px;
+        color: #fff;
+        letter-spacing: 4px;
+        text-decoration: none;
+        font-size: 24px;
+        overflow: hidden;
+        transition: 0.2s;
+    }
+
+    .btn-neon:hover {
+        background: #a945c7;
+        box-shadow: 0 0 10px #a945c7, 0 0 40px #a945c7, 0 0 80px #a945c7;
+        transition-delay: 1s;
+    }
+
+    .btn-neon span {
+        position: absolute;
+        display: block;
+    }
+
+    #span1 {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #a945c7);
+    }
+
+    .btn-neon:hover #span1 {
+        left: 100%;
+        transition: 1s;
+    }
+
+    #span3 {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, #a945c7);
+    }
+
+    .btn-neon:hover #span3 {
+        right: 100%;
+        transition: 1s;
+        transition-delay: 0.5s;
+    }
+
+    #span2 {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #a945c7);
+    }
+
+    .btn-neon:hover #span2 {
+        top: 100%;
+        transition: 1s;
+        transition-delay: 0.25s;
+    }
+
+    #span4 {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, #a945c7);
+    }
+
+    .btn-neon:hover #span4 {
+        bottom: 100%;
+        transition: 1s;
+        transition-delay: 0.75s;
+    }
+
     @media (min-width:640px) {
         .sm\:rounded-lg {
             border-radius: .5rem
@@ -440,103 +560,145 @@
             </div>
         </nav>
         <div class="container">
-
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{ url('images/call_of_duty.jpg') }}" height="600"
-                            alt="Primer juego">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ url('images/fall_guys.jpg') }}" height="600"
-                            alt="Segundo juego">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{ url('images/lol.jpg') }}" height="600" alt="Tercer juego">
+            <div class="wrapper">
+                <div class="one">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{ url('images/gamerfest1.jpg') }}" height="300"
+                                    alt="Primer juego">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="{{ url('images/gamerfest2.jpg') }}" height="300"
+                                    alt="Segundo juego">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="{{ url('images/gamerfest3.jpg') }}" height="300"
+                                    alt="Tercer juego">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <div class="two">
+                    <br>
+                    <div class="row">
+                        <a href="https://discord.gg/NvZEDuNr" class="btn btn-primary btn-lg" role="button"
+                            aria-disabled="true" style="BORDER: 0px; background-color: transparent">
+                            <img class="card-img-top" src="{{ url('images/discord.png') }}" width="50" height="50"
+                                alt="Discord">
+                        </a>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <a href="https://www.instagram.com/gamerfest.ec/?hl=es-la" class="btn btn-primary btn-lg"
+                            role="button" aria-disabled="true" style="BORDER: 0px; background-color: transparent">
+                            <img class="card-img-top" src="{{ url('images/instagram.png') }}" width="50" height="50"
+                                alt="Instagram">
+                        </a>
+
+                    </div>
+                    <br>
+                    <div class="row">
+                        <a href="https://www.facebook.com/gamerfest.ec" class="btn btn-primary btn-lg" role="button"
+                            aria-disabled="true" style="BORDER: 0px; background-color: transparent">
+                            <img class="card-img-top" src="{{ url('images/facebook.png') }}" width="50" height="50"
+                                alt="Facebook">
+                        </a>
+                    </div>
+
+                </div>
+                <div class="three">
+                <center>
+                        <h3 style="color:rgba(255, 255, 255,100);">Ubicacion del evento</h3>
+                    </center>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.2120238450116!2d-78.58828638569456!3d-0.9988702992713584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d4639e3fb9755f%3A0x22fe7f63301b5fee!2sESPE%20-%20Campus%20Belisario%20Quevedo!5e0!3m2!1ses!2sec!4v1669608261033!5m2!1ses!2sec"
+                        width="400" height="620" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+
+                </div>
+                <div class="four">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{ url('images/call_of_duty.jpg') }}" height="350"
+                                    alt="Primer juego">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="{{ url('images/fall_guys.jpg') }}" height="350"
+                                    alt="Segundo juego">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="{{ url('images/lol.jpg') }}" height="350"
+                                    alt="Tercer juego">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="five">
+                    
+                </div>
+                <div class="six">
+                    
+                </div>
+                <div class="seven">
+                    <a href="#" class="btn-neon">
+                        <span id="span1"></span>
+                        <span id="span2"></span>
+                        <span id="span3"></span>
+                        <span id="span4"></span>
+                        <center>
+                            <h3>Tienda</h3>
+                        </center>
+                        <center>
+                        <h5>(Proximamente)</h5>
+                        </center>
+
+                    </a>
+                </div>
             </div>
         </div>
 
         <br><br><br>
-        <center>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="card text-white bg-dark mb-3" style="width: 44rem; ">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.2120238450116!2d-78.58828638569456!3d-0.9988702992713584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d4639e3fb9755f%3A0x22fe7f63301b5fee!2sESPE%20-%20Campus%20Belisario%20Quevedo!5e0!3m2!1ses!2sec!4v1669608261033!5m2!1ses!2sec"
-                            width="700" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <div class="card-body">
-                            <h3 class="card-text">Ubicacion del Gamer Fest</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6">
-                    <div class="card text-white bg-dark mb-3" style="width: 25rem;">
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <a href="https://discord.gg/NvZEDuNr" class="btn btn-primary btn-lg" role="button"
-                                    aria-disabled="true" style="BORDER: 0px; background-color: transparent">
-                                    <img class="card-img-top" src="{{ url('images/discord.png') }}" width="50"
-                                        height="50" alt="Discord">
-                                </a>
-                            </div>
-                            <div class="col-sm-4">
-                                <a href="https://www.instagram.com/gamerfest.ec/?hl=es-la"
-                                    class="btn btn-primary btn-lg" role="button" aria-disabled="true"
-                                    style="BORDER: 0px; background-color: transparent">
-                                    <img class="card-img-top" src="{{ url('images/instagram.png') }}" width="50"
-                                        height="50" alt="Instagram">
-                                </a>
-
-                            </div>
-                            <div class="col-sm-4">
-                                <a href="https://www.facebook.com/gamerfest.ec" class="btn btn-primary btn-lg"
-                                    role="button" aria-disabled="true"
-                                    style="BORDER: 0px; background-color: transparent">
-                                    <img class="card-img-top" src="{{ url('images/facebook.png') }}" width="50"
-                                        height="50" alt="Facebook">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-text">Redes oficiales</h3>
-                        </div>
-                    </div>
-                    <br><br>
-                    <a href="" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">
-                        <h3>Productos</h3>
-                        <h5>(Proximamente)</h5>
-                    </a>
-                </div>
-            </div>
-        </center>
-        <br><br><br>
         <div class="card text-white bg-dark mb-3">
-            
+
             <div class="row">
                 <div class="col-sm-1">
                 </div>
                 <div class="col-sm-3">
                     <br>
-                    <img class="card-img-top" src="{{ url('images/ESPEtransparente.png') }}" width="50" height="100"
-                        alt="Logo ESPE">
+
                 </div>
                 <div class="col-sm-4">
                     <br>
@@ -549,8 +711,7 @@
                 <div class="col-sm-1">
                 </div>
                 <div class="col-sm-2">
-                    <img class="card-img-top" src="{{ url('images/Gamer Fest logo.png') }}" width="20" height="150"
-                        alt="Logo Gamer Fest">
+
                 </div>
 
             </div>
