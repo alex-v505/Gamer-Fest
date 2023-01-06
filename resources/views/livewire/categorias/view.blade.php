@@ -5,6 +5,18 @@
 			<div class="card">
 				<div class="card-header">
 					<div style="display: flex; justify-content: space-between; align-items: center;">
+					<div class="col-3 col-sm-3">
+							<a href="{{route('viewCategorias-pdf')}}"  >
+								<div class="btn btn-sm btn-primary" >
+								<i class="fa fa-eye"></i>  Ver PDF
+								</div>
+							</a>
+							<a href="{{route('downloadCategorias-pdf')}}"  >
+								<div class="btn btn-sm btn-info" >
+								<i class="fa fa-eye"></i>  Descargar PDF
+								</div>
+							</a>
+						</div>
 						<div class="float-left">
 							<h4><i class="fab fa-laravel text-info"></i>
 							Categoria </h4>

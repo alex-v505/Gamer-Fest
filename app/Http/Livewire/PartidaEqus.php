@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\PartidaEqu;
 use App\Models\InscripcionEqu;
+use PDF;
 class PartidaEqus extends Component
 {
     use WithPagination;
@@ -115,5 +116,46 @@ class PartidaEqus extends Component
             $record = PartidaEqu::where('id', $id);
             $record->delete();
         }
+    }
+    public function viewPDF()
+    {
+        $keyWord = '%'.$this->keyWord .'%';
+
+        $partidaEqus = PartidaEqu::with('equipo1')->with('equipo2')->with('equipo3')
+        ->whereHas('equipo1', fn ($query) => 
+        $query->where('nombre_equ', 'LIKE', $keyWord)
+        )
+        ->whereHas('equipo2', fn ($query) => 
+        $query->where('nombre_equ', 'LIKE', $keyWord)
+        )
+        ->whereHas('equipo3', fn ($query) => 
+        $query->where('nombre_equ', 'LIKE', $keyWord)
+        )
+        ->orWhere('fecha_par_equ', 'LIKE', $keyWord)
+        ->orWhere('observacion_par_equ', 'LIKE', $keyWord)
+        ->get();
+        $pdf = PDF::loadView('livewire.partida-equs.partidaEquCatalogo', array('partidaEqus'=> $partidaEqus))->setPaper('a4','portrait');
+        return $pdf->stream();
+    }
+    
+    public function downloadPDF()
+    {
+        $keyWord = '%'.$this->keyWord .'%';
+
+        $partidaEqus = PartidaEqu::with('equipo1')->with('equipo2')->with('equipo3')
+        ->whereHas('equipo1', fn ($query) => 
+        $query->where('nombre_equ', 'LIKE', $keyWord)
+        )
+        ->whereHas('equipo2', fn ($query) => 
+        $query->where('nombre_equ', 'LIKE', $keyWord)
+        )
+        ->whereHas('equipo3', fn ($query) => 
+        $query->where('nombre_equ', 'LIKE', $keyWord)
+        )
+        ->orWhere('fecha_par_equ', 'LIKE', $keyWord)
+        ->orWhere('observacion_par_equ', 'LIKE', $keyWord)
+        ->get();
+        $pdf = PDF::loadView('livewire.partida-equs.partidaEquCatalogo', array('partidaEqus'=> $partidaEqus))->setPaper('a4','portrait');
+        return $pdf->download('PartidoEquipos.pdf');
     }
 }
