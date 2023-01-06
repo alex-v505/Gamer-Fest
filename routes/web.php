@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Livewire\Aulas;
+use App\Http\Livewire\Categorias;
+use App\Http\Livewire\Equipos;
+use App\Http\Livewire\PartidaEqus;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,3 +42,12 @@ Route::middleware([
 	Route::view('inscripcion-equs', 'livewire.inscripcion-equs.index');
 	Route::view('inscripcion-inds', 'livewire.inscripcion-inds.index');
 	Route::view('categorias', 'livewire.categorias.index');
+	Route::get('aulas/view-pdf', [Aulas::class, 'viewPDF'])->name('viewAulas-pdf');
+	Route::get('aulas/download-pdf', [Aulas::class, 'downloadPDF'])->name('downloadAulas-pdf');
+	Route::get('categorias/view-pdf', [Categorias::class, 'viewPDF'])->name('viewCategorias-pdf');
+	Route::get('categorias/download-pdf', [Categorias::class, 'downloadPDF'])->name('downloadCategorias-pdf');
+	Route::get('equipos/view-pdf', [Equipos::class, 'viewPDF'])->name('viewEquipos-pdf');
+	Route::get('equipos/download-pdf', [Equipos::class, 'downloadPDF'])->name('downloadEquipos-pdf');
+	Route::get('partida-equs/view-pdf', [PartidaEqus::class, 'viewPDF'])->name('viewPartidaEqu-pdf');
+	Route::get('partida-equs/download-pdf', [PartidaEqus::class, 'downloadPDF'])->name('downloadPartidaEqu-pdf');
+
