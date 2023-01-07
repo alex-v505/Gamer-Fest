@@ -388,6 +388,38 @@ return [
                 
             ],
         ],
+        [
+            'text'    => 'Reportes',
+            'icon'    => 'fas fa-fw fa-chess',
+            'submenu' => [
+                [
+                    'text' => 'Juegos',
+                    'url'  => 'partida-equs',
+                    'icon' => 'fas fa-chess',
+                ],
+                [
+                    'text' => 'Jugadores Inscritos',
+                    'url'  => 'jugadores-ins',
+                    'icon' => '	fas fa-chess-knight',
+                ],
+                [
+                    'text' => 'Equipos Inscritos',
+                    'url'  => 'partida-inds',
+                    'icon' => '	fas fa-chess-knight',
+                ],
+                [
+                    'text' => 'Recaudacion',
+                    'url'  => 'partida-inds',
+                    'icon' => '	fas fa-chess-knight',
+                ],
+                [
+                    'text' => 'Partidos',
+                    'url'  => 'partida-inds',
+                    'icon' => '	fas fa-chess-knight',
+                ],
+                
+            ],
+        ],
         
     ],
 
