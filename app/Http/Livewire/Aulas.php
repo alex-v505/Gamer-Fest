@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Aula;
+use PDF;
 
 class Aulas extends Component
 {
@@ -89,4 +90,20 @@ class Aulas extends Component
             $record->delete();
         }
     }
+
+    public function viewPDF()
+    {
+        $aulas = Aula::all();
+        $pdf = PDF::loadView('livewire.aulas.aulasCatalogo', array('aulas'=> $aulas))->setPaper('a4','portrait');
+        return $pdf->stream();
+    }
+    
+    public function downloadPDF()
+    {
+        $aulas = Aula::all();
+        $pdf = PDF::loadView('livewire.aulas.aulasCatalogo', array('aulas'=> $aulas))->setPaper('a4','portrait');
+        return $pdf->download('Aulas.pdf');
+    }
+    
+
 }

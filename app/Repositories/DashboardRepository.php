@@ -213,13 +213,14 @@ class DashboardRepository
         $dataset1['data'] = [];
         
 
-        $data = InscripcionInd :: select('id_jue', InscripcionInd::raw('count(*) as total'))
-    ->groupBy('id_jue')
+        $data = InscripcionInd :: select('juegos.nombre_jue', InscripcionInd::raw('count(*) as total'))
+        ->join('juegos','inscripcion__inds.id_jue', '=', 'juegos.id')
+    ->groupBy('juegos.nombre_jue')
     ->get();
         foreach ($data as $key => $value) {
             $dataset1['backgroundColor'][$key] = 'rgba(' . rand(1, 255) . ',' . rand(1, 255) . ',' . rand(1, 255) . ',' .rand(1,8).')';
             $dataset1['data'][$key] = $value->total;
-            $labels[$key] = $value->id_jue;
+            $labels[$key] = $value->nombre_jue;
         }
     
 
@@ -250,13 +251,14 @@ class DashboardRepository
         $dataset1['data'] = [];
         
 
-        $data = InscripcionEqu :: select('id_jue', InscripcionEqu::raw('count(*) as total'))
-        ->groupBy('id_jue')
+        $data = InscripcionEqu :: select('juegos.nombre_jue', InscripcionEqu::raw('count(*) as total'))
+        ->join('juegos','inscripcion__equs.id_jue', '=', 'juegos.id')
+    ->groupBy('juegos.nombre_jue')
         ->get();
         foreach ($data as $key => $value) {
             $dataset1['backgroundColor'][$key] = 'rgba(' . rand(1, 255) . ',' . rand(1, 255) . ',' . rand(1, 255) . ',' .rand(1,8).')';
             $dataset1['data'][$key] = $value->total;
-            $labels[$key] = $value->id_jue;
+            $labels[$key] = $value->nombre_jue;
         }
     
 

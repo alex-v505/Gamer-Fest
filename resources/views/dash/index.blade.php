@@ -168,7 +168,7 @@ $data = $dashboard->ObtenerData();
 
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title" id="titulo">Precio Inscripciones</h3>
+                        <h3 class="card-title" id="titulo">Recaudacion de las Inscripciones</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>

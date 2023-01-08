@@ -256,7 +256,7 @@ return [
     'dashboard_url' => 'dash',
     'logout_url' => 'logout',
     'login_url' => 'login',
-    'register_url' => 'register',
+    'register_url' => 'Registrarse',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => 'categorias/index',
@@ -312,7 +312,7 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'dashboard',
+            'text'        => 'Dashboard',
             'url'         => 'dash',
             'icon'        => 'far fa-fw fa-user',
             'label_color' => 'success',
@@ -382,6 +382,38 @@ return [
                 ],
                 [
                     'text' => 'Partida Individual',
+                    'url'  => 'partida-inds',
+                    'icon' => '	fas fa-chess-knight',
+                ],
+                
+            ],
+        ],
+        [
+            'text'    => 'Reportes',
+            'icon'    => 'fas fa-fw fa-chess',
+            'submenu' => [
+                [
+                    'text' => 'Juegos',
+                    'url'  => 'partida-equs',
+                    'icon' => 'fas fa-chess',
+                ],
+                [
+                    'text' => 'Jugadores Inscritos',
+                    'url'  => 'jugadores-ins',
+                    'icon' => '	fas fa-chess-knight',
+                ],
+                [
+                    'text' => 'Equipos Inscritos',
+                    'url'  => 'partida-inds',
+                    'icon' => '	fas fa-chess-knight',
+                ],
+                [
+                    'text' => 'Recaudacion',
+                    'url'  => 'partida-inds',
+                    'icon' => '	fas fa-chess-knight',
+                ],
+                [
+                    'text' => 'Partidos',
                     'url'  => 'partida-inds',
                     'icon' => '	fas fa-chess-knight',
                 ],
