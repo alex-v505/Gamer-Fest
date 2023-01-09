@@ -6,6 +6,7 @@ use App\Http\Livewire\Categorias;
 use App\Http\Livewire\Equipos;
 use App\Http\Livewire\PartidaEqus;
 use App\Http\Livewire\JugadorIns;
+use App\Http\Livewire\JuegosRep;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +45,7 @@ Route::middleware([
 	Route::view('inscripcion-inds', 'livewire.inscripcion-inds.index');
 	Route::view('categorias', 'livewire.categorias.index');
 	Route::view('jugadores-ins', 'livewire.jugadores-ins.index');
+	Route::view('juegos-rep', 'livewire.juegos-rep.index');
 
 	Route::get('aulas/view-pdf', [Aulas::class, 'viewPDF'])->name('viewAulas-pdf');
 	Route::get('aulas/download-pdf', [Aulas::class, 'downloadPDF'])->name('downloadAulas-pdf');
@@ -56,3 +58,6 @@ Route::middleware([
 
 	Route::get('jugadores-ins/view-pdf', [JugadorIns::class, 'viewPDF'])->name('viewJugadorIns-pdf');
 	Route::get('jugadores-ins/download-pdf', [JugadorIns::class, 'downloadPDF'])->name('downloadJugadorIns-pdf');
+
+	Route::get('juegos-rep/view-pdf', [JuegosRep::class, 'viewPDF'])->name('viewJuegosRep-pdf');
+	Route::get('juegos-rep/download-pdf', [JuegosRep::class, 'downloadPDF'])->name('downloadJuegosRep-pdf');

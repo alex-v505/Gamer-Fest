@@ -394,7 +394,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Juegos',
-                    'url'  => 'partida-equs',
+                    'url'  => 'juegos-rep',
                     'icon' => 'fas fa-chess',
                 ],
                 [
