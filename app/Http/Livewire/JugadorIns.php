@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Jugador;
-use App\Models\Equipo;
+
 use App\Models\InscripcionInd;
 use PDF;
 class JugadorIns extends Component

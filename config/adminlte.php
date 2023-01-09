@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    
     /*
     |--------------------------------------------------------------------------
     | Title
@@ -394,27 +394,27 @@ return [
             'submenu' => [
                 [
                     'text' => 'Juegos',
-                    'url'  => 'partida-equs',
+                    'url'  => 'partida-equs',//Jhonny
                     'icon' => 'fas fa-chess',
                 ],
                 [
                     'text' => 'Jugadores Inscritos',
-                    'url'  => 'jugadores-ins',
+                    'url'  => 'jugadores-ins',//Alex
                     'icon' => '	fas fa-chess-knight',
                 ],
                 [
                     'text' => 'Equipos Inscritos',
-                    'url'  => 'partida-inds',
+                    'url'  => 'equipos-ins',//Kenneth
                     'icon' => '	fas fa-chess-knight',
                 ],
                 [
                     'text' => 'Recaudacion',
-                    'url'  => 'partida-inds',
+                    'url'  => 'partida-inds',//Hernan
                     'icon' => '	fas fa-chess-knight',
                 ],
                 [
                     'text' => 'Partidos',
-                    'url'  => 'partida-inds',
+                    'url'  => 'partidos',//Hernan
                     'icon' => '	fas fa-chess-knight',
                 ],
                 
