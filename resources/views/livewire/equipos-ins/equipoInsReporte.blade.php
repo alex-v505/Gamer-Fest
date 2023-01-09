@@ -27,17 +27,16 @@
                             <th>Precios</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @foreach($equiposIns as $row)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $row->equipos->nombre_equ }}</td>
-                            <td>{{ $row->equipos->descripcion_equ }}</td>
-                            <td>{{ $row->juegos->nombre_jue }}</td>
-                            <td>{{ $row->precio_ins_equ }}</td>
-</tr>
+                    @foreach($equiposIns as $row)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $row->equipos->nombre_equ }}</td>
+                        <td>{{ $row->equipos->descripcion_equ }}</td>
+                        <td>{{ $row->juegos->nombre_jue }}</td>
+                        <td>{{ $row->precio_ins_equ }}</td>
+
                         @endforeach
-                    </tbody>
+                        </tbody>
                 </table>
 
             </div>

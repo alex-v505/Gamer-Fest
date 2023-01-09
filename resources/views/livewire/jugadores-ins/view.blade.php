@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        
+
                         <div class="float-left">
                             <h4><i class="fab fa-laravel text-info"></i>
                                 Jugadores Inscritos </h4>
@@ -26,7 +26,7 @@
                         <div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;">
                             {{ session('message') }} </div>
                         @endif
-                        
+
 
                     </div>
                 </div>
@@ -36,6 +36,9 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-sm">
                             <thead class="thead">
+                                <tr>
+                                    <th colspan="5" class="text-center">Jugadores Inscritos</th>
+                                </tr>
                                 <tr>
                                     <td>#</td>
                                     <th>Nombre </th>

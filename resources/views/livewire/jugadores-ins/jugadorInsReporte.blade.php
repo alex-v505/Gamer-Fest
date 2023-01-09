@@ -15,31 +15,34 @@
         <div class="row justify-content-center">
             <div class="col">
                 <table class="table table-dark " style="position:relative;">
-                <thead class="thead">
-                                <tr>
-                                    <td>#</td>
-                                    <th>Nombre </th>
-                                    <th>Cedula </th>
-                                    <th>Telefono </th>
-                                    <th>Correo </th>
-                                    <th>Descripcion </th>
-                                    <th>Juego </th>
-                                    <th>Precio </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($jugadorIns as $row)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $row->jugadors->nombre_jug }}</td>
-                                    <td>{{ $row->jugadors->cedula_jug }}</td>
-                                    <td>{{ $row->jugadors->telefono_jug }}</td>
-                                    <td>{{ $row->jugadors->correo_jug }}</td>
-                                    <td>{{ $row->jugadors->descripcion_jug }}</td>
-                                    <td>{{ $row->juegos->nombre_jue }}</td>
-                                    <td>{{ $row->precio_ins }}</td>
-                                    @endforeach
-                            </tbody>
+                    <thead class="thead">
+                        <tr>
+                            <th colspan="5" class="text-center">Jugadores Inscritos</th>
+                        </tr>
+                        <tr>
+                            <td>#</td>
+                            <th>Nombre </th>
+                            <th>Cedula </th>
+                            <th>Telefono </th>
+                            <th>Correo </th>
+                            <th>Descripcion </th>
+                            <th>Juego </th>
+                            <th>Precio </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($jugadorIns as $row)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $row->jugadors->nombre_jug }}</td>
+                            <td>{{ $row->jugadors->cedula_jug }}</td>
+                            <td>{{ $row->jugadors->telefono_jug }}</td>
+                            <td>{{ $row->jugadors->correo_jug }}</td>
+                            <td>{{ $row->jugadors->descripcion_jug }}</td>
+                            <td>{{ $row->juegos->nombre_jue }}</td>
+                            <td>{{ $row->precio_ins }}</td>
+                            @endforeach
+                    </tbody>
                 </table>
 
             </div>
