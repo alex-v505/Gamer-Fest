@@ -36,28 +36,49 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-sm">
                             <thead class="thead">
-                                <tr>
+                            <tr>
+                            <th colspan="4" class="text-center"> Recaudacion Inscripciones Individuales</th>
+                            </tr>    
+                            <tr>
+                                    
                                     <td>#</td>
-                                    <th>Nombre </th>
-                                    <th>Cedula </th>
-                                    <th>Telefono </th>
-                                    <th>Correo </th>
-                                    <th>Descripcion </th>
-                                    <th>Juego </th>
-                                    <th>Precio </th>
+                                    <th>Juego</th>
+                                    <th>Cantidad </th>
+                                    <th>SubTotal Inscripcion</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($jugadorsIns as $row)
+                                @foreach($recaudaciones as $row)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $row->jugadors->nombre_jug }}</td>
-                                    <td>{{ $row->jugadors->cedula_jug }}</td>
-                                    <td>{{ $row->jugadors->telefono_jug }}</td>
-                                    <td>{{ $row->jugadors->correo_jug }}</td>
-                                    <td>{{ $row->jugadors->descripcion_jug }}</td>
-                                    <td>{{ $row->juegos->nombre_jue }}</td>
-                                    <td>{{ $row->precio_ins }}</td>
+                                    <td>{{ $row->nombre_jue }}</td>
+                                    <td>{{ $row->total }}</td>
+                                    <td>{{ $row->precioIns }}</td>
+                                    @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-sm">
+                            <thead class="thead">
+                            <tr>
+                            <th colspan="4" class="text-center"> Recaudacion Inscripciones en Equipo</th>
+                            </tr>    
+                            <tr>
+                                    
+                                    <td>#</td>
+                                    <th>Juego</th>
+                                    <th>Cantidad </th>
+                                    <th>SubTotal Inscripcion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($recaudacionesEqu as $row)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $row->nombre_jue }}</td>
+                                    <td>{{ $row->total }}</td>
+                                    <td>{{ $row->precioIns }}</td>
                                     @endforeach
                             </tbody>
                         </table>

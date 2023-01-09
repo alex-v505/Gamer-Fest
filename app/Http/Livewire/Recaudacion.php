@@ -6,9 +6,9 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Juego;
 use App\Models\InscripcionInd;
-use App\Models\InscripcionEqus;
+use App\Models\InscripcionEqu;
 use PDF;
-class JugadorIns extends Component
+class Recaudacion extends Component
 {
     use WithPagination;
 
@@ -19,75 +19,48 @@ class JugadorIns extends Component
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
-       
         return view('livewire.recaudacion.view', [
-            'recaudaciones' => InscripcionInd::with('juegos')->with('inscripcion__inds')
-                        ->whereHas('inscripcion__inds', fn ($query) => 
-                        $query->where('precio_ins', 'LIKE', $keyWord)
-                        )
-                        ->whereHas('juegos', fn ($query) => 
-                        $query->where('nombre_jue', 'LIKE', $keyWord)
-                        )
-                        ->orWhere('precio_ins', 'LIKE', $keyWord)
-						->get(),
+            'recaudaciones' => InscripcionInd::select('juegos.nombre_jue', InscripcionInd::raw('count(*) as total'), InscripcionInd::raw('sum(precio_ins) as precioIns'))
+            ->join('juegos','inscripcion__inds.id_jue', '=', 'juegos.id')
+            ->groupBy('juegos.nombre_jue')
+            ->get(),
+    
+        ],[
+            'recaudacionesEqu' => InscripcionEqu::select('juegos.nombre_jue', InscripcionEqu::raw('count(*) as total'), InscripcionEqu::raw('sum(precio_ins_equ) as precioIns'))
+            ->join('juegos','inscripcion__equs.id_jue', '=', 'juegos.id')
+            ->groupBy('juegos.nombre_jue')
+            ->get(),
+    
         ]);
     }
 	
     public function viewPDF()
     {
-        $keyWord = '%'.$this->keyWord .'%';
+       
 
-        $jugadorIns = InscripcionInd::with('jugadors')->with('juegos')
-        ->whereHas('jugadors', fn ($query) => 
-        $query->where('nombre_jug', 'LIKE', $keyWord)
-        )
-        ->whereHas('jugadors', fn ($query) => 
-        $query->where('cedula_jug', 'LIKE', $keyWord)
-        )
-        ->whereHas('jugadors', fn ($query) => 
-        $query->where('telefono_jug', 'LIKE', $keyWord)
-        )
-        ->whereHas('jugadors', fn ($query) => 
-        $query->where('correo_jug', 'LIKE', $keyWord)
-        )
-        ->whereHas('jugadors', fn ($query) => 
-        $query->where('descripcion_jug', 'LIKE', $keyWord)
-        )
-        ->whereHas('juegos', fn ($query) => 
-        $query->where('nombre_jue', 'LIKE', $keyWord)
-        )
-        ->orWhere('precio_ins', 'LIKE', $keyWord)
+        $recaudacionInd = InscripcionInd::select('juegos.nombre_jue', InscripcionInd::raw('count(*) as total'), InscripcionInd::raw('sum(precio_ins) as precioIns'))
+        ->join('juegos','inscripcion__inds.id_jue', '=', 'juegos.id')
+        ->groupBy('juegos.nombre_jue')
         ->get();
-        $pdf = PDF::loadView('livewire.jugadores-ins.jugadorInsReporte', array('jugadorIns'=> $jugadorIns))->setPaper('a4','landscape');
+        $recaudacionEqu = InscripcionEqu::select('juegos.nombre_jue', InscripcionEqu::raw('count(*) as total'), InscripcionEqu::raw('sum(precio_ins_equ) as precioIns'))
+        ->join('juegos','inscripcion__equs.id_jue', '=', 'juegos.id')
+        ->groupBy('juegos.nombre_jue')
+        ->get();
+        $pdf = PDF::loadView('livewire.recaudacion.recaudacionReporte', array('recaudacionInd'=> $recaudacionInd),array('recaudacionEqu'=> $recaudacionEqu))->setPaper('a4','landscape');
         return $pdf->stream();
     }
     
     public function downloadPDF()
     {
-        $keyWord = '%'.$this->keyWord .'%';
-
-        $jugadorIns = InscripcionInd::with('jugadors')->with('juegos')
-        ->whereHas('jugadors', fn ($query) => 
-        $query->where('nombre_jug', 'LIKE', $keyWord)
-        )
-        ->whereHas('jugadors', fn ($query) => 
-        $query->where('cedula_jug', 'LIKE', $keyWord)
-        )
-        ->whereHas('jugadors', fn ($query) => 
-        $query->where('telefono_jug', 'LIKE', $keyWord)
-        )
-        ->whereHas('jugadors', fn ($query) => 
-        $query->where('correo_jug', 'LIKE', $keyWord)
-        )
-        ->whereHas('jugadors', fn ($query) => 
-        $query->where('descripcion_jug', 'LIKE', $keyWord)
-        )
-        ->whereHas('juegos', fn ($query) => 
-        $query->where('nombre_jue', 'LIKE', $keyWord)
-        )
-        ->orWhere('precio_ins', 'LIKE', $keyWord)
+        $recaudacionInd = InscripcionInd::select('juegos.nombre_jue', InscripcionInd::raw('count(*) as total'), InscripcionInd::raw('sum(precio_ins) as precioIns'))
+        ->join('juegos','inscripcion__inds.id_jue', '=', 'juegos.id')
+        ->groupBy('juegos.nombre_jue')
         ->get();
-        $pdf = PDF::loadView('livewire.jugadores-ins.jugadorInsReporte', array('jugadorIns'=> $jugadorIns))->setPaper('a4','landscape');
-        return $pdf->download('Jugadores_Inscritos.pdf');
+        $recaudacionEqu = InscripcionEqu::select('juegos.nombre_jue', InscripcionEqu::raw('count(*) as total'), InscripcionEqu::raw('sum(precio_ins_equ) as precioIns'))
+        ->join('juegos','inscripcion__equs.id_jue', '=', 'juegos.id')
+        ->groupBy('juegos.nombre_jue')
+        ->get();
+        $pdf = PDF::loadView('livewire.recaudacion.recaudacionReporte',  array('recaudacionInd'=> $recaudacionInd),array('recaudacionEqu'=> $recaudacionEqu))->setPaper('a4','landscape');
+        return $pdf->download('Reacudacion_Inscritos.pdf');
     }
 }
