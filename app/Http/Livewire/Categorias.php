@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Categoria;
-
+use PDF;
 class Categorias extends Component
 {
     use WithPagination;
@@ -89,5 +89,18 @@ class Categorias extends Component
             $record = Categoria::where('id', $id);
             $record->delete();
         }
+    }
+    public function viewPDF()
+    {
+        $categorias = Categoria::all();
+        $pdf = PDF::loadView('livewire.categorias.categoriasCatalogo', array('categorias'=> $categorias))->setPaper('a4','portrait');
+        return $pdf->stream();
+    }
+    
+    public function downloadPDF()
+    {
+        $categorias = Categoria::all();
+        $pdf = PDF::loadView('livewire.categorias.categoriasCatalogo', array('categorias'=> $categorias))->setPaper('a4','portrait');
+        return $pdf->download('Categorias.pdf');
     }
 }

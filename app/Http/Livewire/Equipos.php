@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Equipo;
-
+use PDF;
 class Equipos extends Component
 {
     use WithPagination;
@@ -86,4 +86,18 @@ class Equipos extends Component
             $record->delete();
         }
     }
+    public function viewPDF()
+    {
+        $equipos = Equipo::all();
+        $pdf = PDF::loadView('livewire.equipos.equiposCatalogo', array('equipos'=> $equipos))->setPaper('a4','portrait');
+        return $pdf->stream();
+    }
+    
+    public function downloadPDF()
+    {
+        $equipos = Equipo::all();
+        $pdf = PDF::loadView('livewire.equipos.equiposCatalogo', array('equipos'=> $equipos))->setPaper('a4','portrait');
+        return $pdf->download('Equipos.pdf');
+    }
 }
+
