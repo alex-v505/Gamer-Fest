@@ -639,6 +639,7 @@ class ComposerStaticInit6ec530f81e38a94b67b6b8d9ef986dce
         'App\\Http\\Livewire\\InscripcionEqus' => __DIR__ . '/../..' . '/app/Http/Livewire/InscripcionEqus.php',
         'App\\Http\\Livewire\\InscripcionInds' => __DIR__ . '/../..' . '/app/Http/Livewire/InscripcionInds.php',
         'App\\Http\\Livewire\\Juegos' => __DIR__ . '/../..' . '/app/Http/Livewire/Juegos.php',
+        'App\\Http\\Livewire\\JugadorIns' => __DIR__ . '/../..' . '/app/Http/Livewire/JugadorIns.php',
         'App\\Http\\Livewire\\Jugadors' => __DIR__ . '/../..' . '/app/Http/Livewire/Jugadors.php',
         'App\\Http\\Livewire\\PartidaEqus' => __DIR__ . '/../..' . '/app/Http/Livewire/PartidaEqus.php',
         'App\\Http\\Livewire\\PartidaInds' => __DIR__ . '/../..' . '/app/Http/Livewire/PartidaInds.php',

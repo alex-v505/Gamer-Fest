@@ -6,7 +6,8 @@ use App\Http\Livewire\Categorias;
 use App\Http\Livewire\Equipos;
 use App\Http\Livewire\PartidaEqus;
 use App\Http\Livewire\JugadorIns;
-use App\Http\Livewire\EquiposIns;
+use App\Http\Livewire\Recaudacion;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,12 +41,15 @@ Route::middleware([
 	Route::view('aulas', 'livewire.aulas.index');
 	Route::view('jugadors', 'livewire.jugadors.index');
 	Route::view('juegos', 'livewire.juegos.index');
+	Route::view('jugadores-ins', 'livewire.jugadores-ins.index');
 
 	Route::view('inscripcion-equs', 'livewire.inscripcion-equs.index');
 	Route::view('inscripcion-inds', 'livewire.inscripcion-inds.index');
 	Route::view('categorias', 'livewire.categorias.index');
 	Route::view('jugadores-ins', 'livewire.jugadores-ins.index');
 	Route::view('equipos-ins', 'livewire.equipos-ins.index');
+	Route::view('recaudacion', 'livewire.recaudacion.index');
+	Route::view('partidos', 'livewire.partidos.index');
 
 	Route::get('aulas/view-pdf', [Aulas::class, 'viewPDF'])->name('viewAulas-pdf');
 	Route::get('aulas/download-pdf', [Aulas::class, 'downloadPDF'])->name('downloadAulas-pdf');
@@ -61,3 +65,10 @@ Route::middleware([
 
 	Route::get('equipos-ins/view-pdf', [EquiposIns::class, 'viewPDF'])->name('viewEquiposIns-pdf');
 	Route::get('equipos-ins/download-pdf', [EquiposIns::class, 'downloadPDF'])->name('downloadEquiposIns-pdf');
+	Route::get('recaudacion/view-pdf', [Recaudacion::class, 'viewPDF'])->name('viewRecaudacion-pdf');
+	Route::get('recaudacion/download-pdf', [Recaudacion::class, 'downloadPDF'])->name('downloadRecaudacion-pdf');
+
+	Route::get('partidos/view-pdf', [Partidos::class, 'viewPDF'])->name('viewPartidos-pdf');
+	Route::get('partidos/download-pdf', [Partidos::class, 'downloadPDF'])->name('downloadPartidos-pdf');
+
+	

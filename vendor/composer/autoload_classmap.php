@@ -34,6 +34,7 @@ return array(
     'App\\Http\\Livewire\\InscripcionEqus' => $baseDir . '/app/Http/Livewire/InscripcionEqus.php',
     'App\\Http\\Livewire\\InscripcionInds' => $baseDir . '/app/Http/Livewire/InscripcionInds.php',
     'App\\Http\\Livewire\\Juegos' => $baseDir . '/app/Http/Livewire/Juegos.php',
+    'App\\Http\\Livewire\\JugadorIns' => $baseDir . '/app/Http/Livewire/JugadorIns.php',
     'App\\Http\\Livewire\\Jugadors' => $baseDir . '/app/Http/Livewire/Jugadors.php',
     'App\\Http\\Livewire\\PartidaEqus' => $baseDir . '/app/Http/Livewire/PartidaEqus.php',
     'App\\Http\\Livewire\\PartidaInds' => $baseDir . '/app/Http/Livewire/PartidaInds.php',
