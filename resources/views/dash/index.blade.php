@@ -170,7 +170,7 @@ $data = $dashboard->ObtenerData();
 
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title" id="titulo">Recaudacion de las Inscripciones</h3>
+                        <h3 class="card-title" id="titulo">Recaudación $</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
@@ -232,7 +232,7 @@ $data = $dashboard->ObtenerData();
             <div class="col-6">
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title" id="titulo">Participantes por juegos individuales</h3>
+                        <h3 class="card-title" id="titulo">Participantes por juegos en equipo</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
@@ -264,7 +264,7 @@ $data = $dashboard->ObtenerData();
             <div class="col-6">
                 <div class="card card-info">
                     <div class="card-header">
-                        <h3 class="card-title" id="titulo">Participantes por juegos equipos</h3>
+                        <h3 class="card-title" id="titulo">Participantes por juegos individuales</h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
