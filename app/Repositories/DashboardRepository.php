@@ -39,10 +39,11 @@ class DashboardRepository
     {
         $dashboardInfo = [];
         
-        $dashboardInfo['cat_count'] =  Categoria::get()->count();
-        $dashboardInfo['hor_count'] =  Horario::get()->count();
+        $dashboardInfo['cat_count'] =  InscripcionEqu::get()->count();
+        $dashboardInfo['hor_count'] =  InscripcionInd::get()->count();
         $dashboardInfo['jue_count'] =  Juego::get()->count();
         $dashboardInfo['aul_count'] =  Aula::get()->count();
+        
         return $dashboardInfo;
     }
 
@@ -74,6 +75,10 @@ class DashboardRepository
         $chart['data'] = $data;
         return $chart;
     }
+
+
+
+
     private function getChartInscripcionesInfo()
     {
         $labels = [];

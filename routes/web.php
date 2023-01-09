@@ -8,6 +8,7 @@ use App\Http\Livewire\PartidaEqus;
 use App\Http\Livewire\JugadorIns;
 use App\Http\Livewire\Recaudacion;
 
+use App\Http\Livewire\JuegosRep;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,6 +51,7 @@ Route::middleware([
 	Route::view('equipos-ins', 'livewire.equipos-ins.index');
 	Route::view('recaudacion', 'livewire.recaudacion.index');
 	Route::view('partidos', 'livewire.partidos.index');
+	Route::view('juegos-rep', 'livewire.juegos-rep.index');
 
 	Route::get('aulas/view-pdf', [Aulas::class, 'viewPDF'])->name('viewAulas-pdf');
 	Route::get('aulas/download-pdf', [Aulas::class, 'downloadPDF'])->name('downloadAulas-pdf');
@@ -72,3 +74,5 @@ Route::middleware([
 	Route::get('partidos/download-pdf', [Partidos::class, 'downloadPDF'])->name('downloadPartidos-pdf');
 
 	
+	Route::get('juegos-rep/view-pdf', [JuegosRep::class, 'viewPDF'])->name('viewJuegosRep-pdf');
+	Route::get('juegos-rep/download-pdf', [JuegosRep::class, 'downloadPDF'])->name('downloadJuegosRep-pdf');
