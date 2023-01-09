@@ -42,7 +42,7 @@ class DashboardRepository
         $dashboardInfo['cat_count'] =  InscripcionEqu::get()->count();
         $dashboardInfo['hor_count'] =  InscripcionInd::get()->count();
         $dashboardInfo['jue_count'] =  Juego::get()->count();
-        $dashboardInfo['aul_count'] =  Aula::get()->count();
+        $dashboardInfo['aul_count'] =  PartidaInd::get()->count();
         
         return $dashboardInfo;
     }

@@ -40,15 +40,16 @@ $data = $dashboard->ObtenerData();
         </div>
     </div>
 
+
     <div class="col-lg-3 col-6">
 
         <div class="small-box bg-warning">
             <div class="inner">
                 <h3>{{$data['dashboardInfo']['jue_count']}}</h3>
-                <p>Juegos</p>
+                <p>Total Juegos Registrados</p>
             </div>
             <div class="icon">
-                <i class="fas fa-gamepad"></i>
+                <i class="fas fa-dragon"></i>
             </div>
 
         </div>
@@ -59,10 +60,10 @@ $data = $dashboard->ObtenerData();
         <div class="small-box bg-danger">
             <div class="inner">
                 <h3>{{$data['dashboardInfo']['aul_count']}}</h3>
-                <p>Aulas</p>
+                <p>Total Partidas a jugar</p>
             </div>
             <div class="icon">
-                <i class="fas fa-home"></i>
+                <i class="fas fa-gamepad"></i>
             </div>
         </div>
     </div>
