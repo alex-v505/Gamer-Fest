@@ -19,10 +19,10 @@ $data = $dashboard->ObtenerData();
         <div class="small-box bg-info">
             <div class="inner">
                 <h3>{{$data['dashboardInfo']['cat_count']}}</h3>
-                <p>Categorias</p>
+                <p>Total de equipos</p>
             </div>
             <div class="icon">
-                <i class="fas fa-book"></i>
+                <i class="fas fa-fw fa-users"></i>
             </div>
         </div>
     </div>
@@ -32,10 +32,10 @@ $data = $dashboard->ObtenerData();
         <div class="small-box bg-success">
             <div class="inner">
                 <h3>{{$data['dashboardInfo']['hor_count']}}</h3>
-                <p>Horarios</p>
+                <p>Total de jugadores</p>
             </div>
             <div class="icon">
-                <i class="	far fa-clock"></i>
+                <i class="fas fa-fw fa-user "></i>
             </div>
         </div>
     </div>
@@ -66,6 +66,8 @@ $data = $dashboard->ObtenerData();
             </div>
         </div>
     </div>
+
+    
 
 </div>
 <section class="content">
