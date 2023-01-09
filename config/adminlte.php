@@ -409,12 +409,12 @@ return [
                 ],
                 [
                     'text' => 'Recaudacion',
-                    'url'  => 'partida-inds',
+                    'url'  => 'recaudacion',
                     'icon' => '	fas fa-chess-knight',
                 ],
                 [
                     'text' => 'Partidos',
-                    'url'  => 'partida-inds',
+                    'url'  => 'partidos',
                     'icon' => '	fas fa-chess-knight',
                 ],
                 

@@ -6,6 +6,8 @@ use App\Http\Livewire\Categorias;
 use App\Http\Livewire\Equipos;
 use App\Http\Livewire\PartidaEqus;
 use App\Http\Livewire\JugadorIns;
+use App\Http\Livewire\Recaudacion;
+use App\Http\Livewire\Partidos;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,3 +58,9 @@ Route::middleware([
 
 	Route::get('jugadores-ins/view-pdf', [JugadorIns::class, 'viewPDF'])->name('viewJugadorIns-pdf');
 	Route::get('jugadores-ins/download-pdf', [JugadorIns::class, 'downloadPDF'])->name('downloadJugadorIns-pdf');
+
+	Route::get('recaudacion/view-pdf', [Recaudacion::class, 'viewPDF'])->name('viewRecaudacion-pdf');
+	Route::get('recaudacion/download-pdf', [Recaudacion::class, 'downloadPDF'])->name('downloadRecaudacion-pdf');
+	
+	Route::get('partidos/view-pdf', [Partidos::class, 'viewPDF'])->name('viewPartidos-pdf');
+	Route::get('partidos/download-pdf', [Partidos::class, 'downloadPDF'])->name('downloadPartidos-pdf');
