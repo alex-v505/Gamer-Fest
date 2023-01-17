@@ -10,6 +10,17 @@
                             <h4><i class="fab fa-laravel text-info"></i>
                                 Jugadores Inscritos </h4>
                         </div>
+                        <form class="col-4">
+                        <select wire:model="nombre_jue" type="text" class="form-control" id="nombre_jue"
+                            placeholder="Equipo">@error('nombre_jue') <span class="error text-danger">{{ $message }}</span>
+                            @enderror
+                            <option value="">Todos</option>
+                            @foreach($juegos as $juego)
+                            <option value="{{$juego->nombre_jue}}">{{$juego->nombre_jue}}</option>
+                            @endforeach
+                        </select>
+                        
+                        </form>
                         <div class="col-3 col-sm-3">
                             <a href="{{route('viewJugadorIns-pdf')}}">
                                 <div class="btn btn-sm btn-primary">

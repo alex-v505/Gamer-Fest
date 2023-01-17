@@ -14,31 +14,47 @@
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col">
-                <table class="table table-dark " style="position:relative;">
-                    <thead class="thead">
-                        <tr>
-                            <th colspan="5" class="text-center">Equipos Inscritos</th>
-                        </tr>
-                        <tr>
-                            <td>#</td>
-                            <th>Nombre </th>
-                            <th>Descripcion </th>
-                            <th>Juego </th>
-                            <th>Precios</th>
-                        </tr>
-                    </thead>
-                    @foreach($equiposIns as $row)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $row->equipos->nombre_equ }}</td>
-                        <td>{{ $row->equipos->descripcion_equ }}</td>
-                        <td>{{ $row->juegos->nombre_jue }}</td>
-                        <td>{{ $row->precio_ins_equ }}</td>
+            @if($equiposIns)
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-sm">
+                            <thead class="thead">
+                                <tr>
+                                    <th colspan="6" class="text-center">Equipos Inscritos</th>
+                                </tr>
+                                @for ($i = 0; $i < 1 ; $i++)
+                                <tr>
+                                    <th colspan="6" class="text-center">{{ $equiposIns[$i]->nombre_equ }}</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="6">
+                                        Descripcion: {{ $equiposIns[$i]->descripcion_equ }}
+                                        Precio de la incripcion: {{ $equiposIns[$i]->precio_ins_equ }}</th>
 
-                        @endforeach
-                        </tbody>
-                </table>
-
+                                </tr>
+                                @endfor
+                                <tr>
+                                    <td>#</td>
+                                    <th>Nombre </th>
+                                    <th>Descripcion </th>
+                                    <th>Juego </th>
+                                    <th>Precio </th>
+                                    <th>Precio </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($equiposIns as $row)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $row->nombre_jug }}</td>
+                                    <td>{{ $row->cedula_jug }}</td>
+                                    <td>{{ $row->telefono_jug }}</td>
+                                    <td>{{ $row->correo_jug }}</td>
+                                    <td>{{ $row->descripcion_jug }}</td>
+                                    @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    @endif
             </div>
 
         </div>

@@ -7,7 +7,7 @@ use App\Http\Livewire\Equipos;
 use App\Http\Livewire\PartidaEqus;
 use App\Http\Livewire\JugadorIns;
 use App\Http\Livewire\Recaudacion;
-
+use App\Http\Livewire\EquiposIns;
 use App\Http\Livewire\JuegosRep;
 /*
 |--------------------------------------------------------------------------

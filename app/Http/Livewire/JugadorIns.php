@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Jugador;
-
+use App\Models\Juego;
 use App\Models\InscripcionInd;
 use PDF;
 class JugadorIns extends Component
@@ -13,36 +13,30 @@ class JugadorIns extends Component
     use WithPagination;
 
 	protected $paginationTheme = 'bootstrap';
-    public $selected_id, $keyWord, $id_equ, $nombre_jug, $cedula_jug, $telefono_jug, $correo_jug, $descripcion_jug;
+    public $selected_id, $keyWord, $id_equ, $nombre_jug, $cedula_jug, $telefono_jug, $correo_jug, $descripcion_jug,$nombre_jue;
     public $updateMode = false;
 
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
-       
+        $nombre_jue = $this->nombre_jue ;
+        $juegos = Juego::all();
         return view('livewire.jugadores-ins.view', [
             'jugadorsIns' => InscripcionInd::with('jugadors')->with('juegos')
-                        ->whereHas('jugadors', fn ($query) => 
-                        $query->where('nombre_jug', 'LIKE', $keyWord)
-                        )
-                        ->whereHas('jugadors', fn ($query) => 
-                        $query->where('cedula_jug', 'LIKE', $keyWord)
-                        )
-                        ->whereHas('jugadors', fn ($query) => 
-                        $query->where('telefono_jug', 'LIKE', $keyWord)
-                        )
-                        ->whereHas('jugadors', fn ($query) => 
-                        $query->where('correo_jug', 'LIKE', $keyWord)
-                        )
-                        ->whereHas('jugadors', fn ($query) => 
-                        $query->where('descripcion_jug', 'LIKE', $keyWord)
-                        )
-                        ->whereHas('juegos', fn ($query) => 
-                        $query->where('nombre_jue', 'LIKE', $keyWord)
-                        )
-                        ->orWhere('precio_ins', 'LIKE', $keyWord)
-						->get(),
-        ]);
+            ->whereHas('jugadors', fn ($query) => 
+            $query->orderBy('nombre_jug','desc')
+        )
+                        ->whereHas('juegos', function ($query) use($nombre_jue){
+                            if($nombre_jue){
+                                $query->where('nombre_jue', '=', $nombre_jue);
+                                
+                            }
+                        } )
+                        
+                        
+                        
+			->get(),
+        ],compact('juegos'));
     }
 	
     public function viewPDF()

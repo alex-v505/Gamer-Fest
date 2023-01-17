@@ -5,7 +5,8 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Jugador;
-
+use App\Models\Equipo;
+use Illuminate\Support\Facades\DB;
 use App\Models\InscripcionEqu;
 use PDF;
 class EquiposIns extends Component
@@ -13,65 +14,44 @@ class EquiposIns extends Component
     use WithPagination;
 
 	protected $paginationTheme = 'bootstrap';
-    public $selected_id, $keyWord, $id_equ, $nombre_jug, $cedula_jug, $telefono_jug, $correo_jug, $descripcion_jug;
+    public $selected_id, $keyWord, $id_equ, $nombre_jug, $cedula_jug, $telefono_jug, $correo_jug, $descripcion_jug, $nombre_equ=null;
     public $updateMode = false;
 
     public function render()
     {
 		$keyWord = '%'.$this->keyWord .'%';
-       
+        $nombre_equ = $this->nombre_equ ;
+        $equipos = Equipo::all();
         return view('livewire.equipos-ins.view', [
-            'equiposIns' => InscripcionEqu::with('equipos')->with('juegos')
-                        ->whereHas('equipos', fn ($query) => 
-                        $query->where('nombre_equ', 'LIKE', $keyWord)
-                        )
-                        ->whereHas('equipos', fn ($query) => 
-                        $query->where('descripcion_equ', 'LIKE', $keyWord)
-                        )
-                        ->whereHas('juegos', fn ($query) => 
-                        $query->where('nombre_jue', 'LIKE', $keyWord)
-                        )
-                        ->orWhere('precio_ins_equ', 'LIKE', $keyWord)
-						->get(),
-        ]);
+            'equiposIns' => DB::select('SELECT * FROM 
+            (SELECT equipos.nombre_equ,jugadors.nombre_jug, jugadors.cedula_jug, jugadors.telefono_jug,jugadors.correo_jug,jugadors.descripcion_jug FROM jugadors  INNER JOIN equipos  ON jugadors.id_equ = equipos.id  ) t1
+            INNER JOIN 
+            (SELECT equipos.nombre_equ, equipos.descripcion_equ, inscripcion__equs.precio_ins_equ FROM inscripcion__equs INNER JOIN equipos  ON inscripcion__equs.id_equ = equipos.id  ) t2
+        ON (t1.nombre_equ = t2.nombre_equ) WHERE t1.nombre_equ = "'.$nombre_equ.'"')],compact('equipos'));
     }
 	
     public function viewPDF()
     {
-        $keyWord = '%'.$this->keyWord .'%';
 
-        $equiposIns = InscripcionEqu::with('equipos')->with('juegos')
-        ->whereHas('equipos', fn ($query) => 
-        $query->where('nombre_equ', 'LIKE', $keyWord)
-        )
-        ->whereHas('equipos', fn ($query) => 
-        $query->where('descripcion_equ', 'LIKE', $keyWord)
-        )
-        ->whereHas('juegos', fn ($query) => 
-        $query->where('nombre_jue', 'LIKE', $keyWord)
-        )
-        ->orWhere('precio_ins_equ', 'LIKE', $keyWord)
-        ->get();
+        $nombre_equ = $_GET['nombre_equ'] ;
+        $equiposIns =DB::select('SELECT * FROM 
+        (SELECT equipos.nombre_equ,jugadors.nombre_jug, jugadors.cedula_jug, jugadors.telefono_jug,jugadors.correo_jug,jugadors.descripcion_jug FROM jugadors  INNER JOIN equipos  ON jugadors.id_equ = equipos.id  ) t1
+        INNER JOIN 
+        (SELECT equipos.nombre_equ, equipos.descripcion_equ, inscripcion__equs.precio_ins_equ FROM inscripcion__equs INNER JOIN equipos  ON inscripcion__equs.id_equ = equipos.id  ) t2
+    ON (t1.nombre_equ = t2.nombre_equ) WHERE t1.nombre_equ = "'.$nombre_equ.'"');
+        
         $pdf = PDF::loadView('livewire.equipos-ins.equipoInsReporte', array('equiposIns'=> $equiposIns))->setPaper('a4','landscape');
         return $pdf->stream();
     }
     
     public function downloadPDF()
     {
-        $keyWord = '%'.$this->keyWord .'%';
-
-        $equiposIns =  InscripcionEqu::with('equipos')->with('juegos')
-        ->whereHas('equipos', fn ($query) => 
-        $query->where('nombre_equ', 'LIKE', $keyWord)
-        )
-        ->whereHas('equipos', fn ($query) => 
-        $query->where('descripcion_equ', 'LIKE', $keyWord)
-        )
-        ->whereHas('juegos', fn ($query) => 
-        $query->where('nombre_jue', 'LIKE', $keyWord)
-        )
-        ->orWhere('precio_ins_equ', 'LIKE', $keyWord)
-        ->get();
+        $nombre_equ = $_GET['nombre_equ'] ;
+        $equiposIns =DB::select('SELECT * FROM 
+        (SELECT equipos.nombre_equ,jugadors.nombre_jug, jugadors.cedula_jug, jugadors.telefono_jug,jugadors.correo_jug,jugadors.descripcion_jug FROM jugadors  INNER JOIN equipos  ON jugadors.id_equ = equipos.id  ) t1
+        INNER JOIN 
+        (SELECT equipos.nombre_equ, equipos.descripcion_equ, inscripcion__equs.precio_ins_equ FROM inscripcion__equs INNER JOIN equipos  ON inscripcion__equs.id_equ = equipos.id  ) t2
+    ON (t1.nombre_equ = t2.nombre_equ) WHERE t1.nombre_equ = "'.$nombre_equ.'"');
 
         $pdf = PDF::loadView('livewire.equipos-ins.equipoInsReporte', array('equiposIns'=> $equiposIns))->setPaper('a4','landscape');
         return $pdf->download('Equipos_Inscritos.pdf');
