@@ -403,6 +403,142 @@
         transition-delay: 0.75s;
     }
 
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    .div1 {
+        grid-area: 1 / 1 / 3 / 4;
+    }
+
+    .div2 {
+        grid-area: 3 / 1 / 6 / 4;
+    }
+
+    .div3 {
+        grid-area: 1 / 4 / 6 / 6;
+    }
+
+    .fxform {
+        margin: 20px 20px 0;
+        padding: 0 0 20px;
+    }
+
+    .fxform fieldset {
+        border: none;
+        margin: 0 0 7px;
+        padding: 0 0 10px;
+    }
+
+    .fxform legend {
+        line-height: 100%;
+        text-transform: uppercase;
+        font-family: Lucida Grande, Tahoma, Arial, Verdana, sans-serif;
+        font-size: 9pt;
+        font-weight: 700;
+        color: #555;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+
+    .fxform fieldset div {
+        position: relative;
+        margin-top: 1px;
+        padding: 10px 5px 8px 9px;
+    }
+
+    .fxform label {
+        color: #FFF;
+        font-size: 95%;
+        font-weight: 700;
+        margin-right: 10px;
+    }
+
+    .fxform .guideline {
+        background: #F5F5F5 none repeat scroll 0 0;
+        border: 1px solid #E6E6E6;
+        color: #444;
+        font-size: 80%;
+        left: 100%;
+        line-height: 130%;
+        position: absolute;
+        top: 0;
+        visibility: hidden;
+        width: 42%;
+        z-index: 1000;
+        margin: 0 0 0 8px;
+        padding: 8px 10px 9px;
+    }
+
+    .fxform input[type=text],
+    .fxform input[type=password],
+    .fxform select,
+    .fxform textarea {
+        height: 22px;
+        font-size: 11pt;
+        margin-top: 5px;
+        background: #FFF url(/images/shadow.gif) repeat-x scroll center top;
+        color: #333;
+        width: 350px;
+        border-color: #7C7C7C #c3c3c3 #ddd;
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    .fxform input[type=submit],
+    .fxform input[type=button] {
+        color: #666;
+        background: #e4e4e4;
+        text-align: center;
+        border-color: #c3c3c3;
+        border-style: solid;
+    }
+
+    .fxform .choice {
+        color: #444;
+        display: block;
+        font-size: 100%;
+        line-height: 1.4em;
+        margin: -25px 0 0 20px;
+        padding: 4px 0 5px;
+    }
+
+    .fxform ul {
+        list-style: none;
+        padding: 5px 0 0 10px;
+    }
+
+    .fxform .error {
+        color: red;
+    }
+
+    .fxform .errorField {
+        border: 1px solid red !important;
+    }
+
+    .fxform fieldset div:hover {
+        background-color: #8d98a3;
+    }
+
+    .fxform div:hover .guideline,
+    form div:focus .guideline {
+        visibility: visible;
+    }
+
+    .editor div {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #texto {
+        height: 150px;
+        width: 500px;
+    }
+
     @media (min-width:640px) {
         .sm\:rounded-lg {
             border-radius: .5rem
@@ -623,14 +759,14 @@
 
                 </div>
                 <div class="three">
-                <center>
+                    <center>
                         <h3 style="color:rgba(255, 255, 255,100);">Ubicacion del evento</h3>
                     </center>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.2120238450116!2d-78.58828638569456!3d-0.9988702992713584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d4639e3fb9755f%3A0x22fe7f63301b5fee!2sESPE%20-%20Campus%20Belisario%20Quevedo!5e0!3m2!1ses!2sec!4v1669608261033!5m2!1ses!2sec"
                         width="400" height="620" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    
+
 
                 </div>
                 <div class="four">
@@ -667,27 +803,330 @@
                     </div>
                 </div>
                 <div class="five">
-                    
+
                 </div>
                 <div class="six">
-                    
+
                 </div>
                 <div class="seven">
-                    <a href="#" class="btn-neon">
-                        <span id="span1"></span>
-                        <span id="span2"></span>
-                        <span id="span3"></span>
-                        <span id="span4"></span>
-                        <center>
-                            <h3>Tienda</h3>
-                        </center>
-                        <center>
-                        <h5>(Proximamente)</h5>
-                        </center>
 
-                    </a>
                 </div>
             </div>
+            <div class="parent">
+                <div class="div1">
+                    <div class="card text-white bg-secondary mb-3" style="max-width: 50rem;">
+                        <div class="card-header">
+                            <center>
+                                <h3 style="color:rgba(255, 255, 255,100);">Comentarios y sugerencias</h3>
+                            </center>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="http://saytome.net/gn8" class="fxform" style="width:550px">
+                                <fieldset>
+                                    <div><label for="nombre">De</label><input type='text' value='' id='nombre'
+                                            name='nombre' />
+                                        <div class="guideline">El nombre que el destinatario ver&aacute;.</div>
+                                    </div>
+                                    <div><label for="asunto">Asunto</label><input type='text' value='' id='asunto'
+                                            name='asunto' />
+                                        <div class="guideline">Asunto del mensaje enviado.</div>
+                                    </div>
+                                    <div><label for="email">Email</label><input type='text' value='' id='email'
+                                            name='email' />
+                                        <div class="guideline">Tu email para que el destinatario se pueda poner en
+                                            contacto
+                                            contigo.</div>
+                                    </div>
+                                    <div><label for="texto">Texto</label>
+                                        <div class="editor"><textarea name="texto" id="texto"></textarea></div>
+                                        <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript">
+                                        </script>
+                                        <script type="text/javascript">
+                                        bkLib.onDomLoaded(function() {
+                                            editor = new nicEditor({
+                                                fullPanel: true,
+                                                toolTipOn: true,
+                                                toolTipText: "Haz clic para editar el contenido"
+                                            });
+                                            editor.panelInstance("texto");
+                                        });
+                                        </script>
+                                    </div>
+                                </fieldset>
+                                <div class="submit"><input type="submit" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="div2">
+                    <div class="card text-white bg-secondary mb-3" style="max-width: 50rem;">
+                        <div class="card-header">
+                            <center>
+                                <h3 style="color:rgba(255, 255, 255,100);">Reglamento del evento</h3>
+                            </center>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4 style="color:rgba(255, 255, 255,100);">Valorant</h4>
+                                    <ol>
+                                        <li style="color:rgba(255, 255, 255,100);">El equipo debera tener 5 jugadores y
+                                            un
+                                            suplente como maximo</li>
+                                        <li style="color:rgba(255, 255, 255,100);">Las partidas se disputaran en los
+                                            computadores del aula/laboratorio indicado</li>
+                                        <li style="color:rgba(255, 255, 255,100);">Cualquier intento de trampa sera
+                                            sancionado
+                                            con la descalificacion inmediata del equipo</li>
+                                        <li style="color:rgba(255, 255, 255,100);">Todas las partidas se apegaran al
+                                            reglamento
+                                            y normativas impuestas por Riot Games</li>
+                                        <li style="color:rgba(255, 255, 255,100);">La partida iniciara con un maximo de
+                                            15
+                                            minutos de atraso</li>
+
+                                    </ol>
+                                </div>
+                                <div class="col-6">
+                                    <h4 style="color:rgba(255, 255, 255,100);">Warzone</h4>
+                                    <ol>
+                                        <li style="color:rgba(255, 255, 255,100);">El equipo debera tener 4 jugadores y
+                                            un
+                                            suplente como maximo</li>
+                                        <li style="color:rgba(255, 255, 255,100);">Las partidas se disputaran en los
+                                            computadores del aula/laboratorio indicado</li>
+                                        <li style="color:rgba(255, 255, 255,100);">Cualquier intento de trampa sera
+                                            sancionado
+                                            con la descalificacion inmediata del equipo</li>
+                                        <li style="color:rgba(255, 255, 255,100);">La puntuacion del equipo sera segun
+                                            el numero
+                                            de kills y posicion</li>
+                                        <li style="color:rgba(255, 255, 255,100);">Todas las partidas se jugaran en la
+                                            modalidad
+                                            de trios</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4 style="color:rgba(255, 255, 255,100);">League of Legends</h4>
+                                    <ol>
+                                        <li style="color:rgba(255, 255, 255,100);">El equipo debera tener 5 jugadores y
+                                            un
+                                            suplente como maximo</li>
+                                        <li style="color:rgba(255, 255, 255,100);">Las partidas se disputaran en los
+                                            computadores del aula/laboratorio indicado</li>
+                                        <li style="color:rgba(255, 255, 255,100);">Cualquier intento de trampa sera
+                                            sancionado
+                                            con la descalificacion inmediata del equipo</li>
+                                        <li style="color:rgba(255, 255, 255,100);">Todas las partidas se apegaran al
+                                            reglamento
+                                            y normativas impuestas por Riot Games</li>
+                                        <li style="color:rgba(255, 255, 255,100);">La partida iniciara con un maximo de
+                                            15
+                                            minutos de atraso</li>
+
+                                    </ol>
+                                </div>
+                                <div class="col-6">
+                                    <h4 style="color:rgba(255, 255, 255,100);">Fall guys</h4>
+                                    <ol>
+                                        <li style="color:rgba(255, 255, 255,100);">La modalidad a jugar sera en
+                                            individual</li>
+                                        <li style="color:rgba(255, 255, 255,100);">Las partidas se disputaran en los
+                                            computadores del aula/laboratorio indicado</li>
+                                        <li style="color:rgba(255, 255, 255,100);">Cualquier intento de trampa sera
+                                            sancionado
+                                            con la descalificacion inmediata</li>
+                                        <li style="color:rgba(255, 255, 255,100);">La puntuacion sera segun la ronda
+                                            clasificada
+                                        </li>
+
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <div class="div3">
+                    <div class="card text-white bg-info mb-3" style="max-width: 30rem;">
+                        <div class="card-header">
+                            <center>
+                                <h3 style="color:rgba(255, 255, 255,100);">Productos que se encontraran en el evento
+                                </h3>
+                            </center>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/teclado.jpg') }}" height="150">
+                                    <center>
+                                    Teclados
+                                    </center>
+                                </a>
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/headset.png') }}" height="150">
+                                    <center>
+                                    Headsets
+                                    </center>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/mouse.png') }}" height="110">
+                                    <center>
+                                    Mouses
+                                    </center>
+                                </a>
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/silla.png') }}" height="120">
+                                    <center>
+                                    Sillas
+                                    </center>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/laptop.png') }}" height="110">
+                                    <center>
+                                    Laptops
+                                    </center>
+                                </a>
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/compu.png') }}" height="100">
+                                    <center>
+                                    PCs
+                                    </center>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/cam.png') }}" height="120">
+                                    <center>
+                                    WebCam
+                                    </center>
+                                </a>
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/micro.png') }}" height="120">
+                                    <center>
+                                    Microfonos
+                                    </center>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/escritorio.png') }}" height="100">
+                                    <center>
+                                    Escritorios
+                                    </center>
+                                </a>
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/alfombrilla.png') }}" height="100">
+                                    <center>
+                                    Track pads
+                                    </center>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/audio.png') }}" height="100">
+                                    <center>
+                                    Audio
+                                    </center>
+                                </a>
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/iluminacion.png') }}" height="100">
+                                    <center>
+                                    Iluminacion
+                                    </center>
+                                </a>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/comida.png') }}" height="130">
+                                    <center>
+                                    Comida
+                                    </center>
+                                </a>
+                                <a href="#" class="btn-neon">
+                                    <span id="span1"></span>
+                                    <span id="span2"></span>
+                                    <span id="span3"></span>
+                                    <span id="span4"></span>
+                                    <img class="d-block w-100" src="{{ url('images/figura.png') }}" height="145">
+                                    <center>
+                                    Figuras
+                                    </center>
+                                </a>
+                            
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
         </div>
 
         <br><br><br>
