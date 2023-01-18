@@ -14,47 +14,56 @@
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col">
-            @if($equiposIns)
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-sm">
-                            <thead class="thead">
-                                <tr>
-                                    <th colspan="6" class="text-center">Equipos Inscritos</th>
-                                </tr>
-                                @for ($i = 0; $i < 1 ; $i++)
-                                <tr>
-                                    <th colspan="6" class="text-center">{{ $equiposIns[$i]->nombre_equ }}</th>
+                @if($equiposIns)
+                <div class="table-responsive">
+                    <table class="table border border-dark">
+                        <thead class="thead">
+                            <tr>
+                                <th colspan="6" class="text-center">Equipos Inscritos</th>
+                            </tr>
+                            @for ($i = 0; $i < 1 ; $i++) <tr>
+                                <th colspan="6" class="text-center">{{ $equiposIns[$i]->nombre_equ }}</th>
                                 </tr>
                                 <tr>
                                     <th colspan="6">
                                         Descripcion: {{ $equiposIns[$i]->descripcion_equ }}
                                         Precio de la incripcion: {{ $equiposIns[$i]->precio_ins_equ }}</th>
+                                </tr>
+                                <center>
+                                    <H3>
+                                        <font color="black" face="Comic Sans MS,arial,verdana">Reporte de Equipos
+                                            Inscritos</font>
+                                    </H3>
+                                </center>
 
+
+                                <tr class="border border-dark">
+                                    <td class="table-info border border-dark">#</td>
+                                    <th class="table-primary border border-dark">Nombre </th>
+                                    <th class="table-info border border-dark">Descripcion </th>
+                                    <th class="table-primary border border-dark">Juego </th>
+                                    <th class="table-info border border-dark">Precios</th>
                                 </tr>
                                 @endfor
-                                <tr>
-                                    <td>#</td>
-                                    <th>Nombre </th>
-                                    <th>Descripcion </th>
-                                    <th>Juego </th>
-                                    <th>Precio </th>
-                                    <th>Precio </th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                        </thead>
+                        <tbody>
                             @foreach($equiposIns as $row)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $row->nombre_jug }}</td>
-                                    <td>{{ $row->cedula_jug }}</td>
-                                    <td>{{ $row->telefono_jug }}</td>
-                                    <td>{{ $row->correo_jug }}</td>
-                                    <td>{{ $row->descripcion_jug }}</td>
-                                    @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    @endif
+                            <tr>
+                                <td class="table-info border border-dark">{{ $loop->iteration }}</td>
+                                <td class="table-primary border border-dark">{{ $row->nombre_jug }}</td>
+                                <td class="table-info border border-dark">{{ $row->cedula_jug }}</td>
+                                <td class="table-primary border border-dark">{{ $row->telefono_jug }}</td>
+                                <td class="table-info border border-dark">{{ $row->correo_jug }}</td>
+                                <td class="table-info border border-dark">{{ $row->descripcion_jug }}</td>
+
+                                @endforeach
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+                @endif
             </div>
 
         </div>

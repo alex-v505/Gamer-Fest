@@ -11,36 +11,30 @@
 </head>
 
 <body>
-    <center>
-    <h2>Reporte de Partidos Jugados</h2>
-    </center>
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col">
-                <table class="table table-dark " style="position:relative;">
+            <center> <H3><font color="black" face="Comic Sans MS,arial,verdana">Reporte de Partidas Individuales</font></H3></center>
+                <table class="table border border-dark">
                     <thead class="thead">
-                        <tr>
-                            <th colspan="6" class="text-center"> Partidas Individuales</th>
-                        </tr>
-                        <tr>
-
-                            <td>#</td>
-                            <th>Jugador 1 </th>
-                            <th>Jugador 2 </th>
-                            <th>Ganador </th>
-                            <th>Fecha </th>
-                            <th>Observacion </th>
+                        <tr class="border border-dark">
+                            <td class="table-info border border-dark">#</td>
+                            <th class="table-primary border border-dark">Jugador 1 </th>
+                            <th class="table-info border border-dark">Jugador 2 </th>
+                            <th class="table-primary border border-dark">Ganador </th>
+                            <th class="table-info border border-dark">Fecha </th>
+                            <th class="table-primary border border-dark">Observacion </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($partidosInd as $row)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $row->jugadors1->nombre_jug }}</td>
-                            <td>{{ $row->jugadors2->nombre_jug }}</td>
-                            <td>{{ $row->jugadors3->nombre_jug }}</td>
-                            <td>{{ $row->fecha_par_ind }}</td>
-                            <td>{{ $row->observacion_par_ind }}</td>
+                            <td class="table-info border border-dark">{{ $loop->iteration }}</td>
+                            <td class="table-primary border border-dark">{{ $row->jugadors1->nombre_jug }}</td>
+                            <td class="table-info border border-dark">{{ $row->jugadors2->nombre_jug }}</td>
+                            <td class="table-primary border border-dark">{{ $row->jugadors3->nombre_jug }}</td>
+                            <td class="table-info border border-dark">{{ $row->fecha_par_ind }}</td>
+                            <td class="table-primary border border-dark">{{ $row->observacion_par_ind }}</td>
                             @endforeach
                     </tbody>
                 </table>
@@ -48,30 +42,27 @@
             </div>
             <div class="col">
                 <div class="table-responsive">
-                    <table class="table table-dark" style="position:relative;">
+                <center> <H3><font color="black" face="Comic Sans MS,arial,verdana">Reporte de Partidas en Equipo</font></H3></center>
+                    <table class="table border border-dark">
                         <thead class="thead">
-                            <tr>
-                                <th colspan="6" class="text-center"> Partidas en Equipo</th>
-                            </tr>
-                            <tr>
-
-                                <td>#</td>
-                                <th>Equipo 1</th>
-                                <th>Equipo 2</th>
-                                <th>Ganador </th>
-                                <th>Fecha </th>
-                                <th>Observacion </th>
+                            <tr class="border border-dark">
+                                <td class="table-info border border-dark">#</td>
+                                <th class="table-primary border border-dark">Equipo 1</th>
+                                <th class="table-info border border-dark">Equipo 2</th>
+                                <th class="table-primary border border-dark">Ganador </th>
+                                <th class="table-info border border-dark">Fecha </th>
+                                <th class="table-primary border border-dark">Observacion </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($partidosEqu as $row)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $row->equipo1->nombre_equ }}</td>
-                                <td>{{ $row->equipo2->nombre_equ }}</td>
-                                <td>{{ $row->equipo3->nombre_equ }}</td>
-                                <td>{{ $row->fecha_par_equ }}</td>
-                                <td>{{ $row->observacion_par_equ }}</td>
+                                <td class="table-info border border-dark">{{ $loop->iteration }}</td>
+                                <td class="table-primary border border-dark">{{ $row->equipo1->nombre_equ }}</td>
+                                <td class="table-info border border-dark">{{ $row->equipo2->nombre_equ }}</td>
+                                <td class="table-primary border border-dark">{{ $row->equipo3->nombre_equ }}</td>
+                                <td class="table-info border border-dark">{{ $row->fecha_par_equ }}</td>
+                                <td class="table-primary border border-dark">{{ $row->observacion_par_equ }}</td>
                                 @endforeach
                         </tbody>
                     </table>

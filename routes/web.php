@@ -9,6 +9,8 @@ use App\Http\Livewire\JugadorIns;
 use App\Http\Livewire\Recaudacion;
 use App\Http\Livewire\EquiposIns;
 use App\Http\Livewire\JuegosRep;
+use App\Http\Livewire\EquiposIns;
+use App\Http\Livewire\Partidos;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
