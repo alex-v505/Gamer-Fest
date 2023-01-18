@@ -14,29 +14,29 @@
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col">
-            <center> <H1>REPORTE DE JUEGOS</H1></center>
-            <table class="table table-dark ">
+            <center> <H3><font color="black" face="Comic Sans MS,arial,verdana">Reporte de Juegos</font></H3></center>
+            <table class="table border border-dark">
 						<thead class="thead">
-							<tr> 
-								<td>#</td> 
-								<th>Aula</th>
-								<th>Categoria</th>
-								<th>Nombre </th>
-								<th>Compania </th>
-								<th>Precio </th>
-								<th>Descripcion </th>
+							<tr class="border border-dark"> 	
+								<td class="table-primary border border-dark">#</td> 
+								<th class="table-info border border-dark">Aula</th>
+								<th class="table-primary border border-dark">Categoria</th>
+								<th class="table-info border border-dark">Nombre </th>
+								<th class="table-primary border border-dark">Compania </th>
+								<th class="table-info border border-dark">Precio </th>
+								<th class="table-primary border border-dark">Descripcion </th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach($juegos as $row)
 							<tr>
-								<td>{{ $loop->iteration }}</td> 
-								<td>{{ $row->aulas->codigo_aul }}</td>
-								<td>{{ $row->categorias->tipo_cat }}</td>
-								<td>{{ $row->nombre_jue }}</td>
-								<td>{{ $row->compania_jue }}</td>
-								<td>{{ $row->precio_jue }}</td>
-								<td>{{ $row->descripcion_jue }}</td>
+								<td class="table-primary border border-dark">{{ $loop->iteration }}</td> 
+								<td class="table-info border border-dark">{{ $row->aulas->codigo_aul }}</td>
+								<td class="table-primary border border-dark">{{ $row->categorias->tipo_cat }}</td>
+								<td  class="table-info border border-dark">{{ $row->nombre_jue }}</td>
+								<td class="table-primary border border-dark">{{ $row->compania_jue }}</td>
+								<td  class="table-info border border-dark">{{ $row->precio_jue }}</td>
+								<td class="table-primary border border-dark">{{ $row->descripcion_jue }}</td>
 								
 							@endforeach
 						</tbody>

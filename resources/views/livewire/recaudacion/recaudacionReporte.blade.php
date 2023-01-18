@@ -11,58 +11,49 @@
 </head>
 
 <body>
-<center>
-    <h2>Reporte de Recaudaciones Obtenidas</h2>
-    </center>
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col">
                 <div class="table-responsive">
-                    <table class="table table-dark table-sm">
+                    <center> <H3><font color="black" face="Comic Sans MS,arial,verdana">Reporte de Recaudacion Individual</font></H3></center>
+                    <table class="table border border-dark">
                         <thead class="thead">
-                            <tr>
-                                <th colspan="4" class="text-center"> Recaudacion Inscripciones Individuales</th>
-                            </tr>
-                            <tr>
-
-                                <td>#</td>
-                                <th>Juego</th>
-                                <th>Cantidad </th>
-                                <th>SubTotal Inscripcion</th>
+                            <tr class="border border-dark">
+                                <td class="table-info border border-dark">#</td>
+                                <th class="table-primary border border-dark">Juego</th>
+                                <th class="table-info border border-dark">Cantidad </th>
+                                <th class="table-primary border border-dark">SubTotal Inscripcion</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($recaudacionInd as $row)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $row->nombre_jue }}</td>
-                                <td>{{ $row->total }}</td>
-                                <td>{{ $row->precioIns }}</td>
+                                <td class="table-info border border-dark">{{ $loop->iteration }}</td>
+                                <td class="table-primary border border-dark">{{ $row->nombre_jue }}</td>
+                                <td class="table-info border border-dark">{{ $row->total }}</td>
+                                <td class="table-primary border border-dark">{{ $row->precioIns }}</td>
                                 @endforeach
                         </tbody>
                     </table>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-dark table-sm">
+                 <center> <H3><font color="black" face="Comic Sans MS,arial,verdana">Reporte de Recaudacion en Equipo</font></H3></center>
+                    <table class="table border border-dark">
                         <thead class="thead">
-                            <tr>
-                                <th colspan="4" class="text-center"> Recaudacion Inscripciones en Equipo</th>
-                            </tr>
-                            <tr>
-
-                                <td>#</td>
-                                <th>Juego</th>
-                                <th>Cantidad </th>
-                                <th>SubTotal Inscripcion</th>
+                            <tr class="border border-dark">
+                                <td class="table-primary border border-dark">#</td>
+                                <th class="table-info border border-dark">Juego</th>
+                                <th class="table-primary border border-dark">Cantidad </th>
+                                <th class="table-info border border-dark">SubTotal Inscripcion</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($recaudacionEqu as $row)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $row->nombre_jue }}</td>
-                                <td>{{ $row->total }}</td>
-                                <td>{{ $row->precioIns }}</td>
+                                <td class="table-primary border border-dark">{{ $loop->iteration }}</td>
+                                <td class="table-info border border-dark">{{ $row->nombre_jue }}</td>
+                                <td class="table-primary border border-dark">{{ $row->total }}</td>
+                                <td class="table-info border border-dark">{{ $row->precioIns }}</td>
                                 @endforeach
                         </tbody>
                     </table>

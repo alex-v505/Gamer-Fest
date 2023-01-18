@@ -14,33 +14,31 @@
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col">
-                <table class="table table-dark " style="position:relative;">
+              <center> <H3><font color="black" face="Comic Sans MS,arial,verdana">Reporte de Jugadores Inscritos</font></H3></center>
+                <table class="table border border-dark">
                     <thead class="thead">
-                        <tr>
-                            <th colspan="5" class="text-center">Jugadores Inscritos</th>
-                        </tr>
-                        <tr>
-                            <td>#</td>
-                            <th>Nombre </th>
-                            <th>Cedula </th>
-                            <th>Telefono </th>
-                            <th>Correo </th>
-                            <th>Descripcion </th>
-                            <th>Juego </th>
-                            <th>Precio </th>
+                        <tr class="border border-dark">
+                            <td class="table-primary border border-dark">#</td>
+                            <th class="table-info border border-dark">Nombre </th>
+                            <th class="table-primary border border-dark">Cedula </th>
+                            <th class="table-info border border-dark">Telefono </th>
+                            <th class="table-primary border border-dark">Correo </th>
+                            <th class="table-info border border-dark">Descripcion </th>
+                            <th class="table-primary border border-dark">Juego </th>
+                            <th class="table-info border border-dark">Precio </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($jugadorIns as $row)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $row->jugadors->nombre_jug }}</td>
-                            <td>{{ $row->jugadors->cedula_jug }}</td>
-                            <td>{{ $row->jugadors->telefono_jug }}</td>
-                            <td>{{ $row->jugadors->correo_jug }}</td>
-                            <td>{{ $row->jugadors->descripcion_jug }}</td>
-                            <td>{{ $row->juegos->nombre_jue }}</td>
-                            <td>{{ $row->precio_ins }}</td>
+                            <td class="table-primary border border-dark">{{ $loop->iteration }}</td>
+                            <td class="table-info border border-dark">{{ $row->jugadors->nombre_jug }}</td>
+                            <td class="table-primary border border-dark">{{ $row->jugadors->cedula_jug }}</td>
+                            <td class="table-info border border-dark">{{ $row->jugadors->telefono_jug }}</td>
+                            <td class="table-primary border border-dark">{{ $row->jugadors->correo_jug }}</td>
+                            <td class="table-info border border-dark">{{ $row->jugadors->descripcion_jug }}</td>
+                            <td class="table-primary border border-dark">{{ $row->juegos->nombre_jue }}</td>
+                            <td class="table-info border border-dark">{{ $row->precio_ins }}</td>
                             @endforeach
                     </tbody>
                 </table>

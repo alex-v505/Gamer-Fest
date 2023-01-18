@@ -14,26 +14,24 @@
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col">
-                <table class="table table-dark " style="position:relative;">
+            <center> <H3><font color="black" face="Comic Sans MS,arial,verdana">Reporte de Equipos Inscritos</font></H3></center>
+                <table class="table border border-dark">
                     <thead class="thead">
-                        <tr>
-                            <th colspan="5" class="text-center">Equipos Inscritos</th>
-                        </tr>
-                        <tr>
-                            <td>#</td>
-                            <th>Nombre </th>
-                            <th>Descripcion </th>
-                            <th>Juego </th>
-                            <th>Precios</th>
+                        <tr class="border border-dark">
+                            <td class="table-info border border-dark">#</td>
+                            <th class="table-primary border border-dark">Nombre </th>
+                            <th class="table-info border border-dark">Descripcion </th>
+                            <th class="table-primary border border-dark">Juego </th>
+                            <th class="table-info border border-dark">Precios</th>
                         </tr>
                     </thead>
                     @foreach($equiposIns as $row)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $row->equipos->nombre_equ }}</td>
-                        <td>{{ $row->equipos->descripcion_equ }}</td>
-                        <td>{{ $row->juegos->nombre_jue }}</td>
-                        <td>{{ $row->precio_ins_equ }}</td>
+                        <td class="table-info border border-dark">{{ $loop->iteration }}</td>
+                        <td class="table-primary border border-dark">{{ $row->equipos->nombre_equ }}</td>
+                        <td class="table-info border border-dark">{{ $row->equipos->descripcion_equ }}</td>
+                        <td class="table-primary border border-dark">{{ $row->juegos->nombre_jue }}</td>
+                        <td class="table-info border border-dark">{{ $row->precio_ins_equ }}</td>
 
                         @endforeach
                         </tbody>
