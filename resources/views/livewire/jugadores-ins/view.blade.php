@@ -6,38 +6,36 @@
                 <div class="card-header">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                        <div class="float-left">
-                            <h4><i class="fab fa-laravel text-info"></i>
+                        <div class="float-left .col-auto .me-auto">
+                            <h4>
                                 Jugadores Inscritos </h4>
                         </div>
-                        <form class="col-4">
-                        <select wire:model="nombre_jue" type="text" class="form-control" id="nombre_jue"
-                            placeholder="Equipo">@error('nombre_jue') <span class="error text-danger">{{ $message }}</span>
+
+                        <select wire:model="nombre_jue" type="text" class="form-control .col-auto .me-auto"
+                            id="nombre_jue" placeholder="Equipo">@error('nombre_jue') <span
+                                class="error text-danger">{{ $message }}</span>
                             @enderror
                             <option value="">Todos</option>
                             @foreach($juegos as $juego)
                             <option value="{{$juego->nombre_jue}}">{{$juego->nombre_jue}}</option>
                             @endforeach
-                        </select>
-                        
-                        </form>
-                        <div class="col-3 col-sm-3">
-                            <a href="{{route('viewJugadorIns-pdf')}}">
-                                <div class="btn btn-sm btn-primary">
-                                    <i class="fa fa-eye"></i> Ver PDF
-                                </div>
-                            </a>
-                            <a href="{{route('downloadJugadorIns-pdf')}}">
-                                <div class="btn btn-sm btn-info">
-                                    <i class="fa fa-eye"></i> Descargar PDF
-                                </div>
-                            </a>
-                        </div>
-                        @if (session()->has('message'))
-                        <div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;">
-                            {{ session('message') }} </div>
-                        @endif
 
+
+                        </select>
+                        <div wire:model="nombre_jue" class="dropdown show .col-auto .me-auto">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Acciones
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="{{route('viewJugadorIns-pdf')}}">
+                                    <i class="fa fa-eye"></i> Ver PDF
+                                </a>
+                                <a class="dropdown-item" href="{{route('downloadJugadorIns-pdf')}}">
+                                    <i class="fa fa-save"></i> Descargar PDF
+                                </a>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -48,7 +46,7 @@
                         <table class="table table-bordered table-sm">
                             <thead class="thead">
                                 <tr>
-                                    <th colspan="5" class="text-center">Jugadores Inscritos</th>
+                                    <th colspan="8" class="text-center">Jugadores Inscritos</th>
                                 </tr>
                                 <tr>
                                     <td>#</td>

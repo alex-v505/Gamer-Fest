@@ -6,27 +6,26 @@
                 <div class="card-header">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         
-                        <div class="float-left">
-                            <h4><i class="fab fa-laravel text-info"></i>
+                    <div class="float-left .col-auto .me-auto">
+                            <h4>
                                 Juegos </h4>
                         </div>
-                        <div class="col-3 col-sm-3">
-                            <a href="{{route('viewJuegosRep-pdf')}}">
-                                <div class="btn btn-sm btn-primary">
+                        <div wire:model="nombre_equ" class="dropdown show .col-auto .me-auto">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Acciones
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item"
+                                    href="{{route('viewJuegosRep-pdf')}}">
                                     <i class="fa fa-eye"></i> Ver PDF
-                                </div>
-                            </a>
-                            <a href="{{route('downloadJuegosRep-pdf')}}">
-                                <div class="btn btn-sm btn-info">
-                                    <i class="fa fa-eye"></i> Descargar PDF
-                                </div>
-                            </a>
+                                </a>
+                                <a class="dropdown-item"
+                                    href="{{route('downloadJuegosRep-pdf')}}">
+                                    <i class="fa fa-save"></i> Descargar PDF
+                                </a>
+                            </div>
                         </div>
-                        @if (session()->has('message'))
-                        <div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;">
-                            {{ session('message') }} </div>
-                        @endif
-                        
 
                     </div>
                 </div>

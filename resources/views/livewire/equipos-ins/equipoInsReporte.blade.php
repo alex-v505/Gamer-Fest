@@ -15,34 +15,34 @@
         <div class="row justify-content-center">
             <div class="col">
                 @if($equiposIns)
-                <div class="table-responsive">
-                    <table class="table border border-dark">
-                        <thead class="thead">
-                            <tr>
-                                <th colspan="6" class="text-center">Equipos Inscritos</th>
-                            </tr>
-                            @for ($i = 0; $i < 1 ; $i++) <tr>
-                                <th colspan="6" class="text-center">{{ $equiposIns[$i]->nombre_equ }}</th>
-                                </tr>
-                                <tr>
-                                    <th colspan="6">
-                                        Descripcion: {{ $equiposIns[$i]->descripcion_equ }}
-                                        Precio de la incripcion: {{ $equiposIns[$i]->precio_ins_equ }}</th>
-                                </tr>
-                                <center>
+                <center>
                                     <H3>
                                         <font color="black" face="Comic Sans MS,arial,verdana">Reporte de Equipos
                                             Inscritos</font>
                                     </H3>
                                 </center>
+                <div class="table-responsive">
+                    <table class="table border border-dark">
+                        <thead class="thead">
+                        
+                            @for ($i = 0; $i < 1 ; $i++) <tr>
+                                <th colspan="6" class="table-info border border-dark text-center">{{ $equiposIns[$i]->nombre_equ }}</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="6"class="table-info border border-dark">
+                                        Descripcion: {{ $equiposIns[$i]->descripcion_equ }} ||
+                                        Precio de la incripcion: {{ $equiposIns[$i]->precio_ins_equ }}</th>
+                                </tr>
+                               
 
 
                                 <tr class="border border-dark">
                                     <td class="table-info border border-dark">#</td>
-                                    <th class="table-primary border border-dark">Nombre </th>
-                                    <th class="table-info border border-dark">Descripcion </th>
-                                    <th class="table-primary border border-dark">Juego </th>
-                                    <th class="table-info border border-dark">Precios</th>
+                                    <th class="table-primary border border-dark">Jugador </th>
+                                    <th class="table-info border border-dark">Cedula </th>
+                                    <th class="table-primary border border-dark">Telefono </th>
+                                    <th class="table-info border border-dark">Correo</th>
+                                    <th class="table-info border border-dark">Descripcion</th>
                                 </tr>
                                 @endfor
                         </thead>

@@ -5,28 +5,25 @@
             <div class="card">
                 <div class="card-header">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        
-                        <div class="float-left">
-                            <h4><i class="fab fa-laravel text-info"></i>
+
+                        <div class="float-left .col-auto .me-auto">
+                            <h4>
                                 Recaudacion </h4>
                         </div>
-                        <div class="col-3 col-sm-3">
-                            <a href="{{route('viewRecaudacion-pdf')}}">
-                                <div class="btn btn-sm btn-primary">
+                        <div class="dropdown show .col-auto .me-auto">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Acciones
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="{{route('viewRecaudacion-pdf')}}">
                                     <i class="fa fa-eye"></i> Ver PDF
-                                </div>
-                            </a>
-                            <a href="{{route('downloadRecaudacion-pdf')}}">
-                                <div class="btn btn-sm btn-info">
-                                    <i class="fa fa-eye"></i> Descargar PDF
-                                </div>
-                            </a>
+                                </a>
+                                <a class="dropdown-item" href="{{route('downloadRecaudacion-pdf')}}">
+                                    <i class="fa fa-save"></i> Descargar PDF
+                                </a>
+                            </div>
                         </div>
-                        @if (session()->has('message'))
-                        <div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;">
-                            {{ session('message') }} </div>
-                        @endif
-                        
 
                     </div>
                 </div>
@@ -36,11 +33,11 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-sm">
                             <thead class="thead">
-                            <tr>
-                            <th colspan="4" class="text-center"> Recaudacion Inscripciones Individuales</th>
-                            </tr>    
-                            <tr>
-                                    
+                                <tr>
+                                    <th colspan="4" class="text-center"> Recaudacion Inscripciones Individuales</th>
+                                </tr>
+                                <tr>
+
                                     <td>#</td>
                                     <th>Juego</th>
                                     <th>Cantidad </th>
@@ -61,11 +58,11 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-sm">
                             <thead class="thead">
-                            <tr>
-                            <th colspan="4" class="text-center"> Recaudacion Inscripciones en Equipo</th>
-                            </tr>    
-                            <tr>
-                                    
+                                <tr>
+                                    <th colspan="4" class="text-center"> Recaudacion Inscripciones en Equipo</th>
+                                </tr>
+                                <tr>
+
                                     <td>#</td>
                                     <th>Juego</th>
                                     <th>Cantidad </th>

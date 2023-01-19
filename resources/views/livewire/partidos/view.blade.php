@@ -1,33 +1,29 @@
 @section('title', __('Partidos'))
 <div class="container-fluid">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="grid-template-columns: auto">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                        <div class="float-left">
-                            <h4><i class="fab fa-laravel text-info"></i>
+                        <div class="float-left .col-auto .me-auto">
+                            <h4>
                                 Partidos </h4>
                         </div>
-                        <div class="col-3 col-sm-3">
-                            <a href="{{route('viewPartidos-pdf')}}">
-                                <div class="btn btn-sm btn-primary">
+                        <div wire:model="nombre_equ" class="dropdown show .col-auto .me-auto">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Acciones
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="{{route('viewPartidos-pdf')}}">
                                     <i class="fa fa-eye"></i> Ver PDF
-                                </div>
-                            </a>
-                            <a href="{{route('downloadPartidos-pdf')}}">
-                                <div class="btn btn-sm btn-info">
-                                    <i class="fa fa-eye"></i> Descargar PDF
-                                </div>
-                            </a>
+                                </a>
+                                <a class="dropdown-item" href="{{route('downloadPartidos-pdf')}}">
+                                    <i class="fa fa-save"></i> Descargar PDF
+                                </a>
+                            </div>
                         </div>
-                        @if (session()->has('message'))
-                        <div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;">
-                            {{ session('message') }} </div>
-                        @endif
-
-
                     </div>
                 </div>
 
@@ -36,7 +32,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-sm">
                             <thead class="thead">
-                            <tr>
+                                <tr>
                                     <th colspan="6" class="text-center"> Partidas Individuales</th>
                                 </tr>
                                 <tr>
@@ -59,6 +55,7 @@
                                     <td>{{ $row->fecha_par_ind }}</td>
                                     <td>{{ $row->observacion_par_ind }}</td>
                                     @endforeach
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -88,6 +85,7 @@
                                     <td>{{ $row->fecha_par_equ }}</td>
                                     <td>{{ $row->observacion_par_equ }}</td>
                                     @endforeach
+                                </tr>
                             </tbody>
                         </table>
                     </div>

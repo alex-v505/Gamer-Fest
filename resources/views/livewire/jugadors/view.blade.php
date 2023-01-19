@@ -1,22 +1,19 @@
 @section('title', __('Jugadors'))
 <div class="container-fluid">
-	<div class="row justify-content-center">
+	<div class="row justify-content-center"style="grid-template-columns: auto">
 		<div class="col-md-12">
-			<div class="card">
+			<div class="card"style="grid-template-columns: auto">
 				<div class="card-header">
 					<div style="display: flex; justify-content: space-between; align-items: center;">
-						<div class="float-left">
-							<h4><i class="fab fa-laravel text-info"></i>
+						<div class="float-left .col-auto .me-auto">
+							<h4>
 							Jugador</h4>
 						</div>
 						
-						@if (session()->has('message'))
-						<div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;"> {{ session('message') }} </div>
-						@endif
 						<div>
-							<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="Search Jugadors">
+							<input wire:model='keyWord' type="text" class="form-control .col-auto .me-auto" name="search" id="search" placeholder="Search Jugadors">
 						</div>
-						<div class="btn btn-sm btn-success" data-toggle="modal" data-target="#createDataModal">
+						<div class="btn btn-sm btn-success .col-auto .me-auto" data-toggle="modal" data-target="#createDataModal">
 						<i class="fa fa-plus"></i> Crear Jugador
 						</div>
 					</div>

@@ -5,30 +5,15 @@
 			<div class="card">
 				<div class="card-header">
 					<div style="display: flex; justify-content: space-between; align-items: center;">
-						<div class="col-3 col-sm-3">
-							<a href="{{route('viewAulas-pdf')}}"  >
-								<div class="btn btn-sm btn-primary" >
-								<i class="fa fa-eye"></i>  Ver PDF
-								</div>
-							</a>
-							<a href="{{route('downloadAulas-pdf')}}"  >
-								<div class="btn btn-sm btn-info" >
-								<i class="fa fa-eye"></i>  Descargar PDF
-								</div>
-							</a>
-						</div>
-						<div class="float-left">
-							<h4><i class="fab fa-laravel text-info"></i>
+						<div class="float-left .col-auto .me-auto">
+							<h4>
 							Aula  </h4>
 						</div>
 						
-						@if (session()->has('message'))
-						<div wire:poll.4s class="btn btn-sm btn-success" style="margin-top:0px; margin-bottom:0px;"> {{ session('message') }} </div>
-						@endif
 						<div>
-							<input wire:model='keyWord' type="text" class="form-control" name="search" id="search" placeholder="Search Aulas">
+							<input wire:model='keyWord' type="text" class="form-control .col-auto .me-auto" name="search" id="search" placeholder="Search Aulas">
 						</div>
-						<div class="btn btn-sm btn-success" data-toggle="modal" data-target="#createDataModal">
+						<div class="btn btn-sm btn-success .col-auto .me-auto" data-toggle="modal" data-target="#createDataModal">
 						<i class="fa fa-plus"></i>  Crear Aula
 						</div>
 						
