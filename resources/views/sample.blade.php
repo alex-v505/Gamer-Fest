@@ -1058,7 +1058,7 @@
                     <li class="nav-item align-self-end">
                         @if (Route::has('login'))
                         @auth
-                        <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
+                        <a class="nav-link" href="{{ url('/dash') }}">Dashboard</a>
                         @else
                         <a class="nav-link" href="{{ route('login') }}">Iniciar Sesion</a>
                         @endif
