@@ -34,6 +34,9 @@
                                 <a class="dropdown-item" href="{{route('downloadJugadorIns-pdf')}}">
                                     <i class="fa fa-save"></i> Descargar PDF
                                 </a>
+                                <a class="dropdown-item" href="{{route('excelJugadorIns')}}">
+                                    <i class="fa fa-save"></i> Excel
+                                </a>
                             </div>
                         </div>
 

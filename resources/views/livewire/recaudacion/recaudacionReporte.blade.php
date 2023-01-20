@@ -9,14 +9,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+<style>
+h1 {
+    font-family: 'Algerian';
+    color: green;
+}
+
+tr {
+    line-height: 10px;
+}
+</style>
 
 <body>
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col">
-                <div class="table-responsive">
-                    <center> <H3><font color="black" face="Comic Sans MS,arial,verdana">Reporte de Recaudacion Individual</font></H3></center>
-                    <table class="table border border-dark">
+                <div class="table-responsive-sm">
+                    <center>
+                        <H3>
+                            <font color="black" face="Comic Sans MS,arial,verdana">Reporte de Recaudacion Individual
+                            </font>
+                        </H3>
+                    </center>
+                    <table class="table border border-dark" style="font-family: 'arial';
+    font-size:15px; ">
                         <thead class="thead">
                             <tr class="border border-dark">
                                 <td class="table-info border border-dark">#</td>
@@ -26,35 +42,61 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $total = 0.0; ?>
                             @foreach($recaudacionInd as $row)
                             <tr>
                                 <td class="table-info border border-dark">{{ $loop->iteration }}</td>
                                 <td class="table-primary border border-dark">{{ $row->nombre_jue }}</td>
                                 <td class="table-info border border-dark">{{ $row->total }}</td>
                                 <td class="table-primary border border-dark">{{ $row->precioIns }}</td>
+                                <?php $total=$total+$row->precioIns;?>
                                 @endforeach
+                            </tr>
+                            <tr>
+                                <th class="table-info border border-dark">Total</th>
+                                <th></th>
+                                <th></th>
+                                <td class="table-primary border border-dark">{{ $total }}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="table-responsive">
-                 <center> <H3><font color="black" face="Comic Sans MS,arial,verdana">Reporte de Recaudacion en Equipo</font></H3></center>
-                    <table class="table border border-dark">
+                    <center>
+                        <H3>
+                            <font color="black" face="Comic Sans MS,arial,verdana">Reporte de Recaudacion en Equipo
+                            </font>
+                        </H3>
+                    </center>
+                    <table class="table border border-dark"style="font-family: 'arial';
+    font-size:15px; ">
                         <thead class="thead">
                             <tr class="border border-dark">
                                 <td class="table-primary border border-dark">#</td>
                                 <th class="table-info border border-dark">Juego</th>
                                 <th class="table-primary border border-dark">Cantidad </th>
                                 <th class="table-info border border-dark">SubTotal Inscripcion</th>
+
                             </tr>
+
                         </thead>
                         <tbody>
+                            <?php $total = 0.0; ?>
                             @foreach($recaudacionEqu as $row)
                             <tr>
                                 <td class="table-primary border border-dark">{{ $loop->iteration }}</td>
                                 <td class="table-info border border-dark">{{ $row->nombre_jue }}</td>
                                 <td class="table-primary border border-dark">{{ $row->total }}</td>
                                 <td class="table-info border border-dark">{{ $row->precioIns }}</td>
+                                <?php $total=$total+$row->precioIns;?>
                                 @endforeach
+                            </tr>
+                            <tr>
+                                <th class="table-info border border-dark">Total</th>
+                                <th></th>
+                                <th></th>
+                                <td class="table-primary border border-dark">{{ $total }}</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

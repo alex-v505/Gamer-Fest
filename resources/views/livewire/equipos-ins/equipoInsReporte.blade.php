@@ -42,7 +42,7 @@
                                     <th class="table-info border border-dark">Cedula </th>
                                     <th class="table-primary border border-dark">Telefono </th>
                                     <th class="table-info border border-dark">Correo</th>
-                                    <th class="table-info border border-dark">Descripcion</th>
+                                    <th class="table-primary border border-dark">Descripcion</th>
                                 </tr>
                                 @endfor
                         </thead>
@@ -54,7 +54,7 @@
                                 <td class="table-info border border-dark">{{ $row->cedula_jug }}</td>
                                 <td class="table-primary border border-dark">{{ $row->telefono_jug }}</td>
                                 <td class="table-info border border-dark">{{ $row->correo_jug }}</td>
-                                <td class="table-info border border-dark">{{ $row->descripcion_jug }}</td>
+                                <td class="table-primary border border-dark">{{ $row->descripcion_jug }}</td>
 
                                 @endforeach
                             </tr>

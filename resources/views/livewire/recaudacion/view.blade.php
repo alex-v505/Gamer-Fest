@@ -22,6 +22,9 @@
                                 <a class="dropdown-item" href="{{route('downloadRecaudacion-pdf')}}">
                                     <i class="fa fa-save"></i> Descargar PDF
                                 </a>
+                                <a class="dropdown-item" href="{{route('excelRecaudacion')}}">
+                                    <i class="fa fa-save"></i> Excel
+                                </a>
                             </div>
                         </div>
 
@@ -42,16 +45,27 @@
                                     <th>Juego</th>
                                     <th>Cantidad </th>
                                     <th>SubTotal Inscripcion</th>
+
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $total = 0.0; ?>
                                 @foreach($recaudaciones as $row)
+
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $row->nombre_jue }}</td>
                                     <td>{{ $row->total }}</td>
                                     <td>{{ $row->precioIns }}</td>
+                                    <?php $total=$total+$row->precioIns;?>
                                     @endforeach
+                                </tr>
+                                <tr>
+                                    <th>Total</th>
+                                    <th></th>
+                                    <th></th>
+                                    <td>{{ $total }}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -70,13 +84,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php $total = 0.0; ?>
                                 @foreach($recaudacionesEqu as $row)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $row->nombre_jue }}</td>
                                     <td>{{ $row->total }}</td>
                                     <td>{{ $row->precioIns }}</td>
+                                    <?php $total=$total+$row->precioIns;?>
                                     @endforeach
+                                </tr>
+                                <tr>
+                                    <th>Total</th>
+                                    <th></th>
+                                    <th></th>
+                                    <td>{{ $total }}</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

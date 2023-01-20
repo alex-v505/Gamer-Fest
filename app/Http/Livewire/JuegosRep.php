@@ -7,6 +7,8 @@ use Livewire\WithPagination;
 use App\Models\Juego;
 use App\Models\Aula;
 use App\Models\Categoria;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\JuegosRepExport;
 use PDF;
 
 class JuegosRep extends Component
@@ -78,6 +80,10 @@ class JuegosRep extends Component
         ->get();
         $pdf = PDF::loadView('livewire.juegos-rep.jugadoresReporte', array('juegos'=> $juegos))->setPaper('a4','landscape');
         return $pdf->download('Reporte de Juegos.pdf');
+    }
+    public function exportExcel(){
+
+        return Excel::download(new JuegosRepExport, 'juegos.xlsx');
     }
 }
 

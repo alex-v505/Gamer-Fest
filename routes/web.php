@@ -76,3 +76,9 @@ Route::middleware([
 	
 	Route::get('juegos-rep/view-pdf', [JuegosRep::class, 'viewPDF'])->name('viewJuegosRep-pdf');
 	Route::get('juegos-rep/download-pdf', [JuegosRep::class, 'downloadPDF'])->name('downloadJuegosRep-pdf');
+
+	Route::get('jugadores-ins/excel', [JugadorIns::class, 'exportExcel'])->name('excelJugadorIns');
+	Route::get('juegos-rep/excel', [JuegosRep::class, 'exportExcel'])->name('excelJuegos');
+	Route::get('equipos-ins/excel', [EquiposIns::class, 'exportExcel'])->name('excelEquipos');
+	Route::get('recaudacion/excel', [Recaudacion::class, 'exportExcel'])->name('excelRecaudacion');
+	Route::get('partidos/excel', [Partidos::class, 'exportExcel'])->name('excelPartidos');
