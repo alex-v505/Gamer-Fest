@@ -36,6 +36,10 @@
                                     href="{{route('downloadEquiposIns-pdf',['nombre_equ' => $nombre_equ])}}">
                                     <i class="fa fa-save"></i> Descargar PDF
                                 </a>
+                                <a class="dropdown-item"
+                                    href="{{route('excelEquipos',['nombre_equ' => $nombre_equ])}}">
+                                    <i class="fa fa-save"></i> Excel
+                                </a>
                             </div>
                         </div>
 

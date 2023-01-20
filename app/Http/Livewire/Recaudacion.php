@@ -7,6 +7,8 @@ use Livewire\WithPagination;
 use App\Models\Juego;
 use App\Models\InscripcionInd;
 use App\Models\InscripcionEqu;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\RecaudacionExport;
 use PDF;
 class Recaudacion extends Component
 {
@@ -23,7 +25,7 @@ class Recaudacion extends Component
             'recaudaciones' => InscripcionInd::select('juegos.nombre_jue', InscripcionInd::raw('count(*) as total'), InscripcionInd::raw('sum(precio_ins) as precioIns'))
             ->join('juegos','inscripcion__inds.id_jue', '=', 'juegos.id')
             ->groupBy('juegos.nombre_jue')
-            ->get(),
+            ->get()
     
         ],[
             'recaudacionesEqu' => InscripcionEqu::select('juegos.nombre_jue', InscripcionEqu::raw('count(*) as total'), InscripcionEqu::raw('sum(precio_ins_equ) as precioIns'))
@@ -46,7 +48,7 @@ class Recaudacion extends Component
         ->join('juegos','inscripcion__equs.id_jue', '=', 'juegos.id')
         ->groupBy('juegos.nombre_jue')
         ->get();
-        $pdf = PDF::loadView('livewire.recaudacion.recaudacionReporte', array('recaudacionInd'=> $recaudacionInd),array('recaudacionEqu'=> $recaudacionEqu))->setPaper('a4','landscape');
+        $pdf = PDF::loadView('livewire.recaudacion.recaudacionReporte', array('recaudacionInd'=> $recaudacionInd),array('recaudacionEqu'=> $recaudacionEqu))->setPaper('a4','portrait');
         return $pdf->stream();
     }
     
@@ -60,7 +62,11 @@ class Recaudacion extends Component
         ->join('juegos','inscripcion__equs.id_jue', '=', 'juegos.id')
         ->groupBy('juegos.nombre_jue')
         ->get();
-        $pdf = PDF::loadView('livewire.recaudacion.recaudacionReporte',  array('recaudacionInd'=> $recaudacionInd),array('recaudacionEqu'=> $recaudacionEqu))->setPaper('a4','landscape');
+        $pdf = PDF::loadView('livewire.recaudacion.recaudacionReporte',  array('recaudacionInd'=> $recaudacionInd),array('recaudacionEqu'=> $recaudacionEqu))->setPaper('a4','portrait');
         return $pdf->download('Reacudacion_Inscritos.pdf');
+    }
+    public function exportExcel(){
+
+        return Excel::download(new RecaudacionExport, 'recaudacion.xlsx');
     }
 }

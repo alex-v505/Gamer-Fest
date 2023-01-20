@@ -6,7 +6,8 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\PartidaEqu;
 use App\Models\PartidaInd;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PartidosExport;
 use PDF;
 class Partidos extends Component
 {
@@ -119,5 +120,9 @@ class Partidos extends Component
         ->get();
         $pdf = PDF::loadView('livewire.partidos.partidosReporte', array('partidosInd'=> $partidosInd),array('partidosEqu'=> $partidosEqu))->setPaper('a4','landscape');
         return $pdf->download('Partidos.pdf');
+    }
+    public function exportExcel(){
+
+        return Excel::download(new PartidosExport, 'partidos.xlsx');
     }
 }

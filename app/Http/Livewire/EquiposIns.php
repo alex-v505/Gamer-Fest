@@ -8,6 +8,8 @@ use App\Models\Jugador;
 use App\Models\Equipo;
 use Illuminate\Support\Facades\DB;
 use App\Models\InscripcionEqu;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\EquiposInsExport;
 use PDF;
 class EquiposIns extends Component
 {
@@ -55,5 +57,9 @@ class EquiposIns extends Component
 
         $pdf = PDF::loadView('livewire.equipos-ins.equipoInsReporte', array('equiposIns'=> $equiposIns))->setPaper('a4','landscape');
         return $pdf->download('Equipos_Inscritos.pdf');
+    }
+    public function exportExcel(){
+
+        return Excel::download(new EquiposInsExport, 'equipos.xlsx');
     }
 }

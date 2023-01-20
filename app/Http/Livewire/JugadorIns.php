@@ -7,6 +7,8 @@ use Livewire\WithPagination;
 use App\Models\Jugador;
 use App\Models\Juego;
 use App\Models\InscripcionInd;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\JugadorInsExport;
 use PDF;
 class JugadorIns extends Component
 {
@@ -95,5 +97,9 @@ class JugadorIns extends Component
         ->get();
         $pdf = PDF::loadView('livewire.jugadores-ins.jugadorInsReporte', array('jugadorIns'=> $jugadorIns))->setPaper('a4','landscape');
         return $pdf->download('Jugadores_Inscritos.pdf');
+    }
+    public function exportExcel(){
+
+        return Excel::download(new JugadorInsExport, 'jugadores.xlsx');
     }
 }

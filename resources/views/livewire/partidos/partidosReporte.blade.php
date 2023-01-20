@@ -9,13 +9,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+<style>
+h1 {
+    font-family: 'Algerian';
+    color: green;
+}
 
+tr {
+    line-height: 10px;
+}
+</style>
 <body>
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col">
             <center> <H3><font color="black" face="Comic Sans MS,arial,verdana">Reporte de Partidas Individuales</font></H3></center>
-                <table class="table border border-dark">
+                <table class="table border border-dark" style="font-family: 'arial';
+    font-size:15px; ">
                     <thead class="thead">
                         <tr class="border border-dark">
                             <td class="table-info border border-dark">#</td>
@@ -43,7 +53,8 @@
             <div class="col">
                 <div class="table-responsive">
                 <center> <H3><font color="black" face="Comic Sans MS,arial,verdana">Reporte de Partidas en Equipo</font></H3></center>
-                    <table class="table border border-dark">
+                    <table class="table border border-dark" style="font-family: 'arial';
+    font-size:15px; ">
                         <thead class="thead">
                             <tr class="border border-dark">
                                 <td class="table-info border border-dark">#</td>

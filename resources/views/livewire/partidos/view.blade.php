@@ -22,6 +22,9 @@
                                 <a class="dropdown-item" href="{{route('downloadPartidos-pdf')}}">
                                     <i class="fa fa-save"></i> Descargar PDF
                                 </a>
+                                <a class="dropdown-item" href="{{route('excelPartidos')}}">
+                                    <i class="fa fa-save"></i> Excel
+                                </a>
                             </div>
                         </div>
                     </div>
