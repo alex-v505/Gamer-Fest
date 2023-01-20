@@ -14,7 +14,7 @@
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col">
-            <center> <H3><font color="black" face="Comic Sans MS,arial,verdana">Reporte de Juegos</font></H3></center>
+            <center> <H3><font color="gray" face="Comic Sans MS,arial,verdana">Reporte de Juegos</font></H3></center>
             <table class="table border border-dark">
 						<thead class="thead">
 							<tr class="border border-dark"> 	
