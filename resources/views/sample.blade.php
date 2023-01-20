@@ -1065,7 +1065,7 @@
                     </li>
                     <li class="nav-item">
                         @if (Route::has('register'))
-                        <a class="nav-link" href="{{ url('images/gamerfest1.jpg') }}">Registrarse</a>
+                        <a class="nav-link" href="{{ route('register') }}">Registrarse</a>
                         @endif
                         @endauth
                     </li>
